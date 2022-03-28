@@ -1,0 +1,52 @@
+.body {
+  background-color: white;
+  font-size: 1rem;
+  height: 100vh;
+}
+
+.bcard {
+  background-color: white;
+  box-shadow: 1px 2px orangered;
+  border-radius: 1rem;
+  padding: 0.5rem 2rem;
+  margin: 1rem;
+}
+
+.balance {
+  background-color: whitesmoke;
+  width: 25%;
+}
+
+.action {
+  background-color: whitesmoke;
+  width: 75%;
+}
+
+.bcard .add-withdraw-collect, .payout-table {
+  padding: 0.5rem 2rem;
+  margin: 1rem;
+}
+
+#message {
+  color: red;
+}
+
+.add{
+  color: green;
+}
+
+.sub{
+  color: red;
+}
+
+@media only screen and (max-width: 575px) {
+  .small-screen  {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .balance, .action {
+    width: 94%;
+    text-align: center;
+  }
+}

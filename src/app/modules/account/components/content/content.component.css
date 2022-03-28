@@ -1,0 +1,144 @@
+
+.traveller-content {
+  margin: 0 0px 0px 40px;
+}
+.logo {
+  display: block;
+  width: 275px;
+  height: 100%;
+}
+.traveller-heading {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: helvetica;
+  color: #fff;
+  width: 500px;
+}
+
+.traveller-subheading {
+  font-size: 18px;
+  color: #fff;
+  font-family: helvetica;
+  width: 500px;
+  margin: 0 0 25px 0;
+}
+
+.logo1 {
+  background-image: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/idea.png);
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 29px;
+  margin: 0 20px 0 20px;
+}
+
+.logo2 {
+  background-image: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/engage.png);
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 26px;
+  margin: 0 20px 0 20px;
+}
+
+.logo3 {
+  background-image: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/reward.png);
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 25px;
+  margin: 0 20px 0 20px;
+}
+
+.understand, .engage, .impact {
+  font-size: 18px;
+  font-family: helvetica;
+  color: #fff;
+  margin: 0 0px 0 40px;
+}
+
+.travel-description {
+  font-size: 15px;
+  font-family: helvetica;
+  color: #fff;
+  margin: 10px 0 30px 60px;
+  width: 60%;
+}
+
+.signup-here1 {
+  margin: 0 0 15px 20px;
+  color: #fff;
+  font-size: 15px;
+  position: absolute;
+  bottom: 0;
+}
+
+.slide-down-btns {
+  display: none;
+  width: 80%;
+  margin: 0 auto 30px auto;
+  overflow: hidden;
+}
+
+.slide-btn-first, .slide-btn-second {
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+.slide-btn-first a:focus, .slide-btn-second a:focus {
+  text-decoration: none;
+}
+
+.slide-btn-first a span, .slide-btn-second a span {
+  background: linear-gradient(90deg, #f06257, #f9a125);
+  border: none;
+  border-radius: 40px;
+  text-align: center;
+  display: block;
+  padding: 8px 36px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 15px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width:545px) {
+  .mod-box {
+    float: none;
+    width: auto;
+    margin: 0px;
+    border: hidden;
+    /* height: 100vh; */
+    padding: 0px;
+  }
+  .logo {
+    margin: 0 auto;
+  }
+  .slide-down-btns {
+    display: block;
+  }
+  .traveller-heading {
+    width: auto;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .traveller-subheading {
+    width: auto;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 0 10px 0;
+  }
+  .travel-description {
+    margin: 0px 0 15px 60px;
+  }
+  .background-img {
+    background-image: none;
+    margin: 0;
+  }
+  .traveller-content {
+    /* display: none; */
+    margin: 0;
+  }
+  .signup-here1 {
+    position: static;
+  }
+}

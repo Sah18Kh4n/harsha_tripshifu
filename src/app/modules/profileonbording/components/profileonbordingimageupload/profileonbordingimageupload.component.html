@@ -1,0 +1,39 @@
+<div>
+  <form [formGroup]="imageForm">
+    <div class="row">
+      <div class="col-4 col-sm-4 col-md-4">
+        <div>
+          <div class="profiledpcontainer">
+            <div class="imge-profile-container" (click)="browseAvatar()">
+              <img *ngIf="profiledp" [src]="profiledp" class="imgsize-dp img-fluid" />
+              <span *ngIf="!profiledp" title="Upload your profile pic">
+                <img width="58" height="58"
+                  src="https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/camera.svg" />
+              </span>
+            </div>
+            <div class="subline-iu pdsubline">Add Profile Photo</div>
+          </div>
+        </div>
+        <div>
+          <input hidden #avatar formControlName="avatar" type="file" (change)="addAvatar($event)" />
+        </div>
+      </div>
+      <div class="col-8 col-sm-4 col-md-8">
+        <div class="cover-container">
+          <div class="image-cover-container" (click)="browseBanner()">
+            <img *ngIf="profilecover" [src]="profilecover" class="imgsize-cover img-fluid" />
+            <span *ngIf="!profilecover" title="Upload your profile pic">
+              <img width="58" height="58"
+                src="https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/camera.svg" />
+            </span>
+          </div>
+          <div class="subline-iu-cover">Add Cover Photo</div>
+        </div>
+        <div>
+          <input hidden #banner formControlName="banner" type="file" (change)="addBanner($event)" />
+        </div>
+      </div>
+    </div>
+  </form>
+  <app-crop #crop *ngIf="avatarConfig" (imageCropped)="saveImage($event)"></app-crop>
+</div>

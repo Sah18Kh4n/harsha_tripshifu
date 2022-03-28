@@ -1,0 +1,25 @@
+<div class="instagram-tab">
+  <div class="row">
+    <div class="col-12">
+      <label class="">Instagram</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" *ngIf="profile.social && profile.social.instagram === true">
+      <span class="lbl">Connected to Instagram</span>
+    </div>
+    <div class="col-12" *ngIf="!profile.social || profile.social.instagram !== true">
+      <span class="lbl">Connect to Instagram</span>
+      <button class="done-btn d-inline-block" (click)="onInstagramClick()">Connect Now</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="terms">
+        <span>
+          <a class="link" [href]="storeBase + 'user-agreement'" target="_blank">Terms & Conditions</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

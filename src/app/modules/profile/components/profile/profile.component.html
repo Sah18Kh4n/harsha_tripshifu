@@ -1,0 +1,6 @@
+<div *ngIf="userId">
+  <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+  <div class="body" [ngClass]="sidebarSpacing">
+    <app-profile-container (slugChange)="onSlugChange($event)"></app-profile-container>
+  </div>
+</div>

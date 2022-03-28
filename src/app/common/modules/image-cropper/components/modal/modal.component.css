@@ -1,0 +1,22 @@
+.modal-content {
+  border-radius: 3rem;
+}
+.modal-header {
+  padding: 1rem 3rem;
+  border-bottom: none;
+}
+.modal-title {
+  color: #f06257;
+  font-family: 'Helvetica-Bold';
+  font-size: 1.5rem;
+}
+.modal-body {
+  padding: 0rem 3rem 1rem;
+}
+.modal-footer {
+  padding: 1rem 3rem;
+  border-top: none;
+}
+.done-btn {
+  margin-bottom: 0px;
+}

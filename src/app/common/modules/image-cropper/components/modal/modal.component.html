@@ -1,0 +1,24 @@
+<button #modalLauncher type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCenter"
+  data-backdrop="static" hidden>
+  Launch demo modal
+</button>
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+  aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalCenterTitle">Crop Picture</h5>
+        <button #closeModalEl (click)="closeModal()" type="button" class="close" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-cropper #imageCropper></app-cropper>
+      </div>
+      <div class="modal-footer">
+        <button class="done-btn" (click)="onSaveImage()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

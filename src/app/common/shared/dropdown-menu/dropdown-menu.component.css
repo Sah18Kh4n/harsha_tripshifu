@@ -1,0 +1,69 @@
+.dropdown-menu-container {
+  margin: 0;
+}
+/* .dropdown-menu-container .main-menu {
+  margin: 0;
+} */
+.dropdown-menu-container .main-menu .main-menu-btn {
+  display: inline-block;
+  background: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/profile.svg)
+    no-repeat;
+  padding: 0.7rem 0.7rem 0;
+  margin: 0.6rem 0.7rem 0 0;
+}
+.sub-menu-container {
+  position: relative;
+}
+.menu-items {
+  position: absolute;
+  z-index: 10;
+  top: 1px;
+  right: 1.5rem;
+  display: block;
+  background: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 20px 0 20px 20px;
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+  width: 110px;
+}
+.menu-items .menu-item {
+  margin: 0;
+  padding: 0;
+}
+.menu-item .link {
+  text-decoration: none;
+  color: #707070;
+  font-size: 0.9rem;
+  display: block;
+  margin: 0;
+  padding: 0.3rem 1.5rem;
+}
+
+.menu-item .link:hover {
+  background: #d1d1d1;
+}
+@media screen and (max-width: 575px) {
+  .main-menu {
+    margin-top: 8px;
+  }
+}
+@media screen and (min-width: 576px) {
+  .main-menu {
+    margin-top: 8px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .dropdown-menu-container .main-menu .main-menu-btn {
+    padding: 1rem 1rem 0;
+    margin: 1.3rem 1.4rem 0 0;
+  }
+  .sub-menu-container {
+    position: relative;
+    right: 17px;
+  }
+  .dropdown-menu-container .main-menu {
+    margin: 0px;
+  }
+}

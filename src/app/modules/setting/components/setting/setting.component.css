@@ -1,0 +1,18 @@
+.my-class1 {
+    width: 100%;
+}
+
+.my-class2 {
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .my-class1 {
+        width: 80%;
+        margin-left: 20%;
+    }
+    .my-class2 {
+        width: 95%;
+        margin-left: 5%;
+    }
+}

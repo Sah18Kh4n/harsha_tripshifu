@@ -1,0 +1,13 @@
+<div class="product-lists" *ngIf="products">
+  <div *ngFor="let product of products">
+    <div *ngIf="type === 'stays' && !product.packageId">
+      <app-product [locationId]="locationId" [product]="product" [openedProduct]="openedProduct" [locationName]="locationName" (addingProduct)="onAddingProduct($event)" (browseImage)="onBrowseImage($event)" (replaceImage)="onBrowseAnotherImage($event)" (productDeleted)="onProductDelete($event)"></app-product>
+    </div>
+    <div *ngIf="type === 'experiences' && !product.hotelId && !product.listingId">
+      <app-product [locationId]="locationId" [product]="product" [openedProduct]="openedProduct" (addingProduct)="onAddingProduct($event)" (browseImage)="onBrowseImage($event)" (replaceImage)="onBrowseAnotherImage($event)" (productDeleted)="onProductDelete($event)"></app-product>
+    </div>
+  </div>
+  <div *ngIf="noMoreSearchProducts || noMoreAllProducts">
+    <p class="no-search">No More Results...</p>
+  </div>
+</div>

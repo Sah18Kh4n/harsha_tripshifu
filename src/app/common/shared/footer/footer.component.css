@@ -1,0 +1,162 @@
+.footer-box {
+  height: auto;
+  background: linear-gradient(90deg, #f06257, #f9a125);
+  margin: 0px 0 0 0;
+}
+
+.footer-content {
+  margin: 0 4% 0 4%;
+}
+
+.footer-content .headings {
+  padding: 30px 0 0 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+}
+
+.footer-content a {
+  color: white;
+  cursor: pointer;
+}
+
+.all-links {
+  margin: 0 0 20px 0;
+}
+
+.links {
+  font-size: 0.7rem;
+  color: #FFF;
+}
+
+.instamojo-ico {
+  margin: 0 15px 0 0;
+}
+
+.instamojo {
+  width: 90px;
+  height: 25px;
+}
+
+.visa-ico {
+  margin: 0 15px 0 0;
+}
+
+.visa {
+  width: 40px;
+  height: 40px;
+}
+
+.mastercard-ico {
+  margin: 0 15px 0 0;
+}
+
+.mastercard {
+  width: 40px;
+  height: 40px;
+}
+
+.rupay-ico {
+  margin: 0 15px 0 0;
+}
+
+.rupay {
+  width: 40px;
+  height: 20px;
+}
+
+.upi-ico {
+  margin: 0 15px 0 0;
+}
+
+.upi {
+  width: 40px;
+  height: 30px;
+}
+
+.social-links-cont .social-link-item {
+  margin: 0 5px 10px 0;
+}
+
+.social-links-cont .social-link-item .social-link-ico {
+  width: 25px;
+  height: 25px;
+}
+
+.social-links-cont {
+  margin: 0 0 0px 0;
+}
+
+.version {
+  text-align: left;
+  font-size: 0.7rem;
+  line-height: 1.17;
+  letter-spacing: normal;
+  color: white;
+}
+
+.rights {
+  text-align: right;
+  font-size: 0.7rem;
+  line-height: 1.17;
+  letter-spacing: normal;
+  color: white;
+}
+
+.address {
+  text-align: left;
+  font-size: 0.7rem;
+  line-height: 1.17;
+  letter-spacing: normal;
+  color: white;
+}
+
+.bottom {
+  padding: 0 0 15px 0;
+}
+
+.social-links-cont .social-link-item .social-link-ico.fb {
+  margin-bottom: 10px;
+  background: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/white/facebook.svg) no-repeat;
+}
+
+.social-links-cont .social-link-item .social-link-ico.tw {
+  margin-bottom: 10px;
+  background: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/white/twitter.svg) no-repeat;
+}
+
+.social-links-cont .social-link-item .social-link-ico.li {
+  margin-bottom: 10px;
+  background: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/white/linkedin.svg) no-repeat;
+}
+
+.social-links-cont .social-link-item .social-link-ico.pi {
+  margin-bottom: 10px;
+  background: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/white/pinterest.svg) no-repeat;
+}
+
+.social-links-cont .social-link-item .social-link-ico.yt {
+  margin-bottom: 10px;
+  background: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/white/youtube.svg) no-repeat;
+}
+
+.social-links-cont .social-link-item .social-link-ico.ig {
+  margin-bottom: 10px;
+  background: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/white/instagram.svg) no-repeat;
+}
+
+@media screen and (max-width:545px) {
+  .version {
+    text-align: center;
+    color: white;
+  }
+  .rights {
+    text-align: center;
+    color: white;
+  }
+  .address {
+    text-align: center;
+    color: white;
+  }
+}

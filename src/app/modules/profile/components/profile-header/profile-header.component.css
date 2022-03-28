@@ -1,0 +1,467 @@
+.width-link {
+  width: 50%;
+}
+
+.cover-img {
+  /* height: 271px; */
+  width: 100%;
+  margin: 0 auto 0 auto;
+  border-bottom: 1px solid #707070;
+}
+
+.image-container {
+  position: relative;
+}
+
+.cameraicon {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 1rem;
+  color: white;
+}
+
+.dpcameraicon {
+  display: none;
+  position: absolute;
+  top: 46px;
+  right: 45px;
+  font-size: 1rem;
+  color: white;
+}
+
+.imgsizediv:hover .dpcameraicon {
+  display: block;
+}
+
+.design-plus {
+  float: left;
+}
+
+.design-minus {
+  float: right;
+}
+
+.plusminuscontainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.y-horizontal-ig {
+  width: 95% !important;
+}
+
+.cover-img-container {
+  margin-bottom: 45px;
+}
+
+.avatar-container {
+  position: relative;
+}
+
+.profileurl {
+  margin-top: 10px;
+}
+
+.errorcolor {
+  color: #d92550;
+}
+
+.successcolor {
+  font-size: 13px;
+  margin-left: 10px;
+  color: #3ac47d;
+}
+
+.imgsizediv {
+  border: 1px solid #707070;
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  position: absolute;
+  top: -100px;
+  left: 35px;
+}
+
+.imgsize-dp {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.btn-inner-div {
+  border-radius: 50%;
+}
+
+.imgsizediv:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.image-container:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.btncamera:hover {
+  cursor: pointer;
+}
+
+.cameraforcover:hover {
+  cursor: pointer;
+}
+
+.btncamera {
+  background: none;
+  border: none;
+}
+
+.cameraforcover {
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.icon-cam {
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+}
+
+.modeldivdesign {
+  z-index: 1;
+  background-color: white;
+  width: 85%;
+  height: 430px;
+  position: absolute;
+  border-radius: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px 2px;
+}
+
+.y-cropping-i1 {
+  max-width: 405px;
+  height: 230px;
+}
+
+.title-crop {
+  font-family: ProximaNova;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: left;
+  color: #f06257;
+  margin: 10px;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: antiquewhite;
+}
+
+.design-subm {
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: white;
+  float: right;
+  background-image: linear-gradient(to left, #f9a125, #f06257);
+}
+
+.design-btn {
+  margin: 0 10px 0 0;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  display: inline-block;
+}
+
+.design-btn2 {
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px 0 0;
+  width: 35px;
+  height: 35px;
+}
+
+.design-btn3 {
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px 0 0;
+  width: 35px;
+  height: 35px;
+  position: relative;
+  bottom: 3px;
+}
+
+.design-btn4 {
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px 0 0;
+  width: 35px;
+  height: 35px;
+}
+
+.design-btn:hover {
+  transform: scaleX(1.3) scaleY(1.3);
+  transition: width 2s;
+  background: rgba(0, 157, 255, .205);
+  border-radius: 5px;
+  transition: ease-in-out 130ms;
+  cursor: pointer;
+}
+
+.design-btn2:hover {
+  transform: scaleX(1.3) scaleY(1.3);
+  transition: width 2s;
+  background: rgba(0, 157, 255, .205);
+  border-radius: 5px;
+  transition: ease-in-out 130ms;
+}
+
+.design-btn3:hover {
+  transform: scaleX(1.3) scaleY(1.3);
+  transition: width 2s;
+  background: rgba(0, 157, 255, .205);
+  border-radius: 5px;
+  transition: ease-in-out 130ms;
+}
+
+.fa-envelope {
+  color: #dd4f42;
+}
+
+.icon-pos {
+  position: relative;
+  top: 4px;
+}
+
+.link-pos {
+  position: relative;
+  top: 6px;
+}
+
+.fa-share-alt:before {
+  content: "\f1e0";
+  color: #f06257;
+  font-size: 1.6rem !important;
+  position: relative;
+  top: 2px;
+}
+
+.fa-chain:before, .fa-link:before {
+  content: "\f0c1";
+}
+
+.sb-email {
+  color: #d92550;
+}
+
+.sb-wrapper {
+  color: red;
+}
+
+.sb-wrapper {
+  background-color: navy
+}
+
+.copylocation {
+  /* width: 457px; */
+  height: 54px;
+  font-family: Helvetica;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  color: #f06257;
+  display: inline-block;
+  padding: 10px 0 0 0;
+  position: relative;
+  top: 3px;
+}
+
+.linkcolor {
+  color: #f06257;
+  text-decoration: none;
+}
+
+.icons {
+  display: inline-block;
+}
+
+.movedown {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+}
+
+.movedown1 {
+  display: inline-block;
+  position: relative;
+  /* top: 5px; */
+  color: black !important;
+  font-size: 1rem !important;
+}
+
+.check-ico {
+  position: relative;
+  right: 45px;
+}
+
+.centering {
+  position: relative;
+  top: 4px;
+}
+
+.fb {
+  font-size: 1.8em !important;
+  margin-left: 10px;
+}
+
+.share-ico {
+  font-size: 1.2rem;
+  color: #f06257;
+  font-weight: bold;
+}
+
+.copylocation .linkcolor:hover {
+  text-decoration: underline;
+}
+
+.your-profile {
+  display: block;
+  color: #707070;
+}
+
+@media screen and (max-width:545px) {
+  .share-ico {
+    display: inline-block;
+  }
+  .copylocation {
+    display: block;
+    width: 300px;
+    margin: 35px 0 0 0;
+    height: 30px;
+    font-size: 0.73rem;
+  }
+  .design-btn {
+    width: 30px;
+  }
+  .design-btn2 {
+    width: 35px;
+  }
+  .design-btn3 {
+    width: 35px;
+  }
+  .icons {
+    width: 100%;
+    padding: 0 5px 0 0;
+    margin: 0 0 10px 0;
+  }
+  .showTime2 {
+    text-align: left;
+    padding: 0 0 0 15px;
+  }
+}
+
+@media screen and (min-width:546px) {
+  .share-ico {
+    display: inline-block;
+  }
+  .copylocation {
+    display: block;
+    margin: 35px 0 0 0;
+  }
+  .showTime2 {
+    padding: 0 0 0 15px;
+  }
+  .icons {
+    margin: 0 0 10px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .modeldivdesign {
+    width: 25%;
+  }
+  .share-ico {
+    display: inline-block;
+  }
+  .copylocation {
+    width: 700px;
+    display: inline-block;
+    margin: 35px 0 0 0;
+  }
+  .icons {
+    margin: 0 0 10px 0;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .copylocation {
+    width: auto;
+    margin: 0 20px 0 0;
+    display: inline-block;
+    font-size: 0.7rem;
+  }
+  .showTime2 {
+    margin: 0 0 0 170px;
+    display: inline-block;
+  }
+  .share-sec {
+    position: relative;
+    bottom: 30px;
+  }
+  .dpcameraicon {
+    top: 66px;
+    right: 66px;
+  }
+}
+
+@media screen and (min-width:1200px) {
+  .copylocation {
+    width: 457px;
+    margin: 0;
+    font-size: 1rem;
+  }
+  .showTime2 {
+    float: left;
+    margin: 0;
+    display: block;
+    margin: 0 0 0 180px;
+  }
+}
+
+@media screen and (max-width:1400px) {
+  .icons {
+    font-size: 0.6rem;
+  }
+  .share-ico {
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+  }
+}
+
+@media screen and (min-width:1401px) {
+  .copylocation {
+    font-size: 1rem;
+    margin: 0 40px 0 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .imgsizediv {
+    width: 150px;
+    height: 150px;
+    top: -125px;
+  }
+}

@@ -1,0 +1,22 @@
+.feedback {
+  background: #f3f3f3;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  min-height: 550px;
+}
+
+.feedbackmargin {
+  margin-bottom: 40px;
+}
+
+.feedbacklabel {
+  color: #707070;
+  font-family: Helvetica;
+}
+
+@media (min-width: 992px) {
+  .feedback {
+    padding-left: 156px;
+    padding-right: 156px;
+  }
+}

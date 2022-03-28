@@ -1,0 +1,756 @@
+/* * {
+  overflow-x: hidden; 
+} */
+
+.signin-box {
+  border-bottom: solid 1px #d1d1d1;
+  border-right: solid 1px #d1d1d1;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 57px;
+  outline: none;
+  text-decoration: none;
+}
+.background-img {
+  background-image: url(https://res.cloudinary.com/funstaytest/image/fetch/https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/influencer-landing.png);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  /* margin: 72px 0 0 0; */
+}
+.traveller-content {
+  margin: 0 0px 0px 40px;
+}
+.traveller-heading {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: helvetica;
+  color: #fff;
+}
+.traveller-subheading {
+  font-size: 18px;
+  color: #fff;
+  font-family: helvetica;
+  width: 60%;
+  margin: 0 0 25px 0;
+}
+.logo1 {
+  background-image: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/idea.png); 
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 29px;
+  margin: 0 20px 0 20px;
+}
+.logo2 {
+  background-image: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/engage.png); 
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 26px;
+  margin: 0 20px 0 20px;
+}
+.logo3 {
+  background-image: url(https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/reward.png); 
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 25px;
+  margin: 0 20px 0 20px;
+}
+.understand, .engage, .impact {
+  font-size: 18px;
+  font-family: helvetica;
+  color: #fff;
+  margin: 0 0px 0 40px;
+}
+.travel-description {
+  font-size: 15px;
+  font-family: helvetica;
+  color: #fff;
+  margin: 10px 0 30px 60px;
+  width: 60%;
+}
+.signup-here1 {
+  margin: 0 0 40px 20px;
+  color: #fff;
+  font-size: 15px;
+  position: absolute;
+  bottom: 0;
+  width: 60%;
+}
+
+.mod-box {
+  /* margin-top: 40px;
+  margin-bottom: 40px; */
+  background-color: white;
+  padding: 0 15px 10px 15px;
+}
+.fb-btn {
+  background: #3b5998;
+  height: 40px;
+  display: flex;
+  border-radius: 24px;
+  cursor: pointer;
+  margin: 20px 10px 0 5px;
+}
+.insta-btn {
+  background: linear-gradient(90deg, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+  height: 40px;
+  display: flex;
+  border-radius: 24px;
+  cursor: pointer;
+  margin: 20px 10px 0 5px;
+}
+.google-btn {
+  background: #DD4B39;
+  height: 40px;
+  display: flex;
+  border-radius: 24px;
+  cursor: pointer;
+  margin: 20px 10px 0 5px;
+}
+.fb-icon {
+  color: white;
+  padding: 10px 15px;
+  position: absolute;
+}
+.fb-login {
+  text-align: center;
+  line-height: 2.3;
+  color: white;
+  font-size: 1.1rem;
+  font-family: helvetica;
+  position: relative;
+  left: 25%;
+  /* text-transform: uppercase; */
+}
+.border-line {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  left: 12%;
+}
+.line1 {
+  border-bottom: 2px solid #d1d1d1;
+  margin: 10px 0 0 25px;
+}
+.line2 {
+  border-bottom: 2px solid #d1d1d1;
+  margin: 10px 30px 0 0px;
+}
+.or {
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  top: 5px;
+  color: #707070;
+}
+.or-content {
+  margin: 20px 0 20px 0;
+}
+.signup-field {
+  background: white;
+  text-align: center;
+  border: 1px solid #ced4da;
+  cursor: pointer;
+  margin: 20px 10px 0 5px;
+  color: #707070;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+}
+.resend-btn {
+  background: #FFF;
+  text-align: center;
+  border: 1px solid #707070;
+  color: #707070;
+  font-size: 0.7rem;
+  padding: 0.9rem 0.4rem;
+  border-radius: 1.5rem;
+  display: inline-block;
+  outline: none;
+  width: 100%;
+}
+.resend-btn:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+#dropdown
+{
+  position: absolute;
+  top: 37px;
+  left: 15px;
+  border-radius: 22px;
+  border: solid 1px #d1d1d1;
+  background: #FFF;
+  outline: none;
+  height: 42px;
+  width: 80px;
+  color: #707070;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.idropdown {
+  padding: 0 0 0 84px;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+.signin-box .signin {
+  color: #707070;
+  text-decoration: none;
+}
+
+.signup-box {
+  border-bottom: solid 1px #d1d1d1;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 57px;
+  outline: none;
+  text-decoration: none;
+}
+
+.signup-box .signin {
+  color: #707070;
+  text-decoration: none;
+}
+
+.hello-there {
+  padding: 10px 0 10px 0;
+}
+
+.hello-there .hello {
+  width: 182px;
+  height: 36px;
+  font-family: Helvetica;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.hello-there .fill {
+  width: 86px;
+  height: 12px;
+  font-family: Helvetica;
+  font-size: 10px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8e8f92;
+}
+
+/* .design-input {
+    border-radius: 22px;
+    border: solid 1px #d1d1d1;
+    background: #FFF;
+  } */
+
+.design-input {
+  /* width: 316px; */
+  height: 41px;
+  border-radius: 21px;
+  border: solid 1px #d1d1d1;
+}
+
+.signup-btn {
+  width: 147px;
+  height: 49px;
+  font-size: 15px;
+}
+
+.signup {
+  margin-top: 1.5rem;
+}
+
+.signup .done-btn {
+  margin: 0 5px 0 0px;
+}
+
+.terms {
+  padding: 8px 0 0px 0;
+}
+
+.terms .link {
+  color: #175bdd;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.lbl {
+  color: #707070;
+  font-family: Helvetica;
+}
+
+.eye {
+  padding-right: 15px;
+  color: #8c8383;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.eye-icon {
+  display: flex;
+  justify-content: space-between;
+}
+.validate-name-msg, .validate-email-msg, .validate-cpassword-msg {
+height: 15px;
+}
+.validate-error-msg {
+  height: 15px;
+}
+
+/* a:active {
+    background-color: yellow;
+  } */
+
+.active-link {
+  border-top-left-radius: 38px;
+  background: linear-gradient(90deg, #f06257, #f9a125);
+}
+
+.active-link .signin {
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.footer {
+  height: 16px;
+  background-color: #f16258;
+}
+
+.footer-box {
+  height: auto;
+  background-color: #eeeeee;
+}
+
+.talk {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000000;
+}
+
+.mob-number {
+  color: #898989;
+}
+
+.information {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000000;
+}
+
+.news {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000000;
+}
+
+.interesting {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000000;
+}
+
+.payments {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000000;
+}
+
+.social-media {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000000;
+  font-size: 10px;
+}
+
+.instamojo-ico {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.instamojo {
+  width: 30px;
+  height: 20px;
+}
+
+.visa-ico {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.visa {
+  width: 20px;
+  height: 20px;
+}
+
+.mastercard-ico {
+  display: inline-block;
+  margin: 0 5px 0 0;
+
+}
+
+.mastercard {
+  width: 20px;
+  height: 10px;
+}
+
+.rupay-ico {
+  display: inline-block;
+  margin: 0 5px 0 0;
+
+}
+
+.rupay {
+  width: 30px;
+  height: 10px;
+}
+
+.upi-ico {
+  display: inline-block;
+  margin: 0 5px 0 0;
+
+}
+
+.upi {
+  width: 30px;
+  height: 20px;
+}
+
+.social-content {
+  display: flex;
+}
+.terms{
+  color: #888888;
+}
+.linkss {
+  color: #888888;
+  cursor: pointer;
+}
+.errormsgcolor {
+  font-size: 0.7rem;
+}
+
+@media screen and (max-width:545px) {
+  .mod-box {
+    float: none;
+    width: auto;
+    border: hidden;
+    padding: 1.5rem 1rem;
+    margin: 0 0 1rem 0;
+  }
+  .border-line {
+    left: 12%;
+  }
+  .background-img {
+    margin: 0;
+  }
+  .traveller-content {
+    display: none;
+  }
+  .errormsgcolor {
+    font-size: 0.7rem;
+  }
+  .hello-there {
+    padding: 20px 0 10px 0;
+  }
+
+  .signin-box {
+    display: none;
+  }
+
+  .signup-box {
+    display: none;
+  }
+
+  .welcome {
+    visibility: hidden;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+  }
+
+  .mob-number {
+    padding: 0 0 0 20px !important;
+  }
+
+  .version {
+    text-align: center;
+    margin: 10px 0 10px 0;
+    color: #888888;
+  }
+
+  .rights {
+    text-align: center;
+    color: #888888;
+
+  }
+
+  .address {
+    text-align: center;
+    color: #888888;
+
+  }
+  .signin-here{
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 15px 0;
+    color: #888888;
+  }
+  .info-links {
+    color: #888888;
+    cursor: pointer;
+    display: block;
+    width: auto;
+    margin: 0 30px 0 0;
+}
+.all-info{
+    margin: 0 0 0 40px;
+}
+.signup-field {
+  margin: 0px 0 20px 0;
+}
+}
+
+@media screen and (min-width:546px) {}
+
+@media screen and (min-width: 768px) {
+.mod-box {
+  height: 685px;
+  /* margin: 40px px 40px 0; */
+}
+.all-info {
+  margin: 0;
+}
+.info-links {
+  color: #888888;
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
+  margin: 0 30px 0 0;
+}
+  .footer{
+    margin: 30px 0 0 0;
+  }
+  .design-input {
+    width: 316px;
+  }
+
+  .version {
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: normal;
+    color: #888888;
+}
+
+  .rights {
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: normal;
+    color: #888888;
+  }
+
+  .address {
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.17;
+  letter-spacing: normal;
+  color: #888888;
+  }
+
+  .footer-content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 16px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  .talk{
+    font-size: 16px;
+    text-align: left;
+  }
+  .mob-number{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+  }
+
+  
+.instamojo-ico {
+  margin: 0 15px 0 0;
+}
+
+.instamojo {
+  width: 90px;
+  height: 25px;
+}
+
+.visa-ico {
+  margin: 0 15px 0 0;
+}
+
+.visa {
+  width: 60px;
+  height: 40px;
+}
+
+.mastercard-ico {
+  margin: 0 15px 0 0;
+
+}
+
+.mastercard {
+  width: 60px;
+  height: 40px;
+}
+
+.rupay-ico {
+  margin: 0 15px 0 0;
+}
+
+.rupay {
+  width: 60px;
+  height: 20px;
+}
+
+.upi-ico {
+  margin: 0 15px 0 0;
+}
+
+.upi {
+  width: 70px;
+  height: 30px;
+}
+.social-content{
+  margin: 0 0 30px 0;
+}
+.social-content .social-media{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.social-content .social-links-cont .social-link-item {
+  margin: 0 10px 0 0;
+}
+
+.payments-ico {
+  display: flex;
+  justify-content: unset !important;
+}
+.about{
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 30px;
+  }
+  .contact{
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 30px 0 0;
+
+  }
+  .Privacy{
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 30px 0 0;
+
+  }
+  .user{
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 30px 0 0;
+
+  }
+  .socio-respo{
+  display: inline-block;
+  white-space: nowrap; 
+  margin: 0 30px 0 0;
+
+  }
+  .sitemap{
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 30px 0 0;
+
+  }
+  .careers{
+    display: inline-block;
+    white-space: nowrap;
+
+  }
+  .all-info {
+    display: block;
+
+
+  }
+  .signin-here{
+    display: none;
+  }
+  .bottom{
+    margin: 0 0 15px 0;
+  }
+  .hello-there {
+   padding-left: 5px;
+  }
+  .spacetoleft {
+    margin-left: 5px;
+  }
+  .eye {
+    padding-right: 30px;
+  }
+  .terms {
+    margin-left: 10px;
+  }
+  /* .signup-btn {
+    margin-right: 5px !important;
+  } */
+  .errormsgcolor {
+    margin-left: 5px;
+    font-size: 0.7rem;
+  }
+  .error-msg-size {
+    height: 20px;
+    margin: 0 0 0 12px;
+  }
+}
+
+@media screen and (min-width:992px){
+  .footer-content{
+    font-size: 20px;
+  }
+  .talk{
+    font-size: 20px;
+  }
+  .mob-number{
+    font-size: 20px;
+  }
+  .social-content .social-media{
+    font-size: 20px;
+  }
+}

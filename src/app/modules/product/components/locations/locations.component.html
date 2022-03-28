@@ -1,0 +1,43 @@
+<app-email-verification *ngIf="onboarding === 'false'"></app-email-verification>
+<section class="locations-sect">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-12 offset-lg-3 col-lg-8 col-xl-6">
+        <div class="header-sect">
+          <h1 class="sect-head">Travel Diary</h1>
+          <h6>Add your favourite Stays & Itineraries to create your travel diary</h6>
+        </div>
+        <div class="breadcrumb-cont listing">
+          <span class="lbl first">My Diary</span>
+          <span class="lbl">></span>
+          <span class="lbl last">Edit Diary</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-12 offset-lg-3 col-lg-8 col-xl-6">
+        <div class="body-sect">
+          <div class="row" *ngIf="locations">
+            <div class="col-6 col-md-4 col-lg-4">
+              <a title="Click to add a new location"
+                [routerLink]="newListingRouterLink"
+                class="text-decoration-none"
+              >
+                <div class="new-location loc-tile">
+                  <fa-icon class="new-ico" [icon]="addNewIcon"></fa-icon>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-4 col-lg-4"
+              *ngFor="let location of locations"
+            >              
+              <app-location [location]="location" [editLink]="editListingRouterLink" (locationDeleted)="onLocationDelete($event)"></app-location>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

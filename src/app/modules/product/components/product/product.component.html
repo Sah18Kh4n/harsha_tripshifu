@@ -1,0 +1,179 @@
+<div class="product-item" *ngIf="product" style="background: #FFF;">
+  <form [formGroup]="listingForm" (ngSubmit)="submitListingForm()" *ngIf="product.title">
+    <div class="row">
+      <div class="col-12">
+        <div class="prod-title" *ngIf="product.title">
+          <a [href]="productLink" target="_blank">
+            <h3 class="text-truncate">{{ product.title }}&nbsp;
+              <fa-icon style="font-size: 0.9rem;" [icon]="externalLink"></fa-icon>
+            </h3>
+          </a>
+          <div class="product-payout" *ngIf="product.price && product.price !== 0">
+            <h4>Starts from Rs {{product.price | number : '1.0-0'}}</h4>
+          </div>
+          <div class="product-payout" *ngIf="product.payout && product.payout !== 0">
+            <h4>Your expected earning Rs {{product.payout}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="prod-img-cont" *ngIf="product.images">
+          <img *ngIf="product.images.length > 1" class="img-full" [src]="product.images[0].url" (error)="onImageError($event)" alt="product" />
+          <img *ngIf="product.images.length == 1" class="img-full" [src]="product.images['0'].url" (error)="onImageError($event)" alt="product" />
+          <img *ngIf="product.images.length == 0" class="img-full" [src]="defaultImage" />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="product-rating">
+        <div class="prod-ratings" *ngIf="product.ratings">
+          <h4 class="prod-sub-title">Add Rating</h4>
+          <div class="rating-cont">
+            <div class="row no-gutters">
+              <div class="col-6">
+                <span class="rating-param">Hygiene</span>
+              </div>
+              <div class="col-6">
+                <span class="rating-value">
+                  <star-rating [value]="product.ratings.hygiene" checkedcolor="#f06257" uncheckedcolor="#CCC"
+                    [readonly]="readOnlyRating" (rate)="onRate($event, 'hygiene')"></star-rating>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="rating-cont">
+            <div class="row no-gutters">
+              <div class="col-6">
+                <span class="rating-param">Food</span>
+              </div>
+              <div class="col-6">
+                <span class="rating-value">
+                  <star-rating [value]="product.ratings.food" checkedcolor="#f06257" uncheckedcolor="#CCC"
+                    [readonly]="readOnlyRating" (rate)="onRate($event, 'food')"></star-rating>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="rating-cont">
+            <div class="row no-gutters">
+              <div class="col-6">
+                <span class="rating-param">Value</span>
+              </div>
+              <div class="col-6">
+                <span class="rating-value">
+                  <star-rating [value]="product.ratings.value" checkedcolor="#f06257" uncheckedcolor="#CCC"
+                    [readonly]="readOnlyRating" (rate)="onRate($event, 'value')"></star-rating>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="extras">
+          <div class="row">
+            <div class="col-6">
+              <span *ngIf="product.productListingId && adding" class="ico-btn py-3"
+                title="Toggle the status of this product">
+                <div class="item">
+                  <input type="checkbox" [checked]="statusCheck" (change)="toggleListingStatus()" />
+                </div>
+              </span>
+            </div>
+            <div class="col-6 text-center">
+              <span *ngIf="product.productListingId && adding" class="ico-btn py-3" title="Delete this product"
+                (click)="deleteListing()">
+                <fa-icon class="trash-ico" [icon]="trashIcon"></fa-icon>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="d-block mt-2 mt-lg-5" *ngIf="locationId && adding === false">
+          <input type="button" formControlName="subBtn" class="submit-btn float-right" (click)="addListing()" />
+        </div>
+      </div>
+      </div>
+    </div>
+    <div [@openClose]="state">
+      <div>
+        <!-- <div class="row">
+          <div class="col-12">
+            <h4 class="prod-sub-title">Add Images</h4>
+          </div>
+        </div> -->
+        <div class="row mt-3">
+          <div class="col-12">
+            <div *ngIf="product.productListingId && product.images.length > 0">
+              <p style="font-size: 0.8rem;">*Drag and drop to reorder images</p>
+            </div>
+            <div class="prod-images-outer" cdkDropListGroup *ngIf="product.images">
+              <div *ngIf="product.productListingId && product.images.length < 8" class="prod-img-sect">
+                <div class="prod-img-thumb">
+                  <div class="prod-new-image" title="Click to upload new image" (click)="browseProductImage()">
+                    <fa-icon class="new-ico" [icon]="addNewIcon"></fa-icon>
+                  </div>
+                </div>
+              </div>
+              <ng-container *ngFor="let image of product.images; let i = index">
+                <div class="prod-img-sect" cdkDropList 
+                cdkDropListOrientation="horizontal"
+                [cdkDropListData]="{item:image,index:i}" (cdkDropListDropped)="drop($event)">
+                  <div class="prod-img-thumb" cdkDrag [cdkDragDisabled]="!product.productListingId">
+                    <div *cdkDragPlaceholder></div>
+                    <img class="img-full" [src]="image.url" alt="" (click)="browseAnotherImage(image.imageId)">
+                    <span *ngIf="product.productListingId" class="close-cont">
+                      <fa-icon class="close-ico" [icon]="closeIcon" title="Delete this image"
+                        (click)="deleteImage(image.imageId)"></fa-icon>
+                      <fa-icon class="add-new-ico" [icon]="addNewIcon" title="Replace this image"
+                        (click)="browseAnotherImage(image.imageId)"></fa-icon>
+                    </span>
+                  </div>
+                  <label class="cover-lbl" *ngIf="product.productListingId && i === 0">Cover</label>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h4 class="prod-sub-title">Description <span
+              style="font-size: 0.7rem;">(Tell us more about the location in
+              your own words)</span></h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <textarea formControlName="description" class="prod-desc" (input)="updateDescCharCount()"></textarea>
+            <div class="hint-sect">
+              <span class="hint">{{ descCharCount }} characters remaining
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5" *ngIf="product.productListingId">
+            <div class="error-sect">
+              <div *ngIf="listingFormControl.description.invalid && 
+              (listingFormControl.description.dirty ||
+                listingFormControl.description.touched)">
+                <span class="errormsgcolor" *ngIf="listingFormControl.description.errors.required">Description is required</span>
+                <span class="errormsgcolor" *ngIf="listingFormControl.description.errors.maxlength">Max 1000 characters allowed</span>
+              </div>
+              <span class="errormsgcolor" *ngIf="submitted && listingForm.pristine && listingForm.invalid">Description can't be empty</span>
+            </div>
+          </div>
+          <div class="col-7" [ngClass]="{'col-12 text-right': product.productListingId == null }">
+            <span class="btn-hint" [ngClass]="{'d-none': product.productListingId != null }">Add product to edit information</span>
+            <input type="submit" formControlName="saveListing" class="submit-btn float-right spacebottom" value="Confirm" />
+            <span *ngIf="product.productListingId" class="skip-btn float-right" (click)="skip()">Skip</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <hr />
+      </div>
+    </div>
+  </form>
+</div>

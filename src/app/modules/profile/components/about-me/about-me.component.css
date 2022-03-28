@@ -1,0 +1,49 @@
+label .spaceupdown {
+  color: #707070;
+}
+.margin-form {
+  margin-top: 20px;
+}
+.abtsize {
+  border: solid 1px #d1d1d1;
+  background-color: #ffffff;
+  height: 150px;
+}
+.spaceupdown {
+  margin: 15px 0px;
+}
+.design-submit {
+  float: right;
+}
+.hint-sect {
+  position: relative;
+  float: left;
+}
+.submit {
+  position: relative;
+  right: 10px;
+}
+.padright {
+  padding-right: 20px;
+}
+.padbtn{
+  padding-right: 13px;
+}
+
+@media screen and (max-width:545px){
+  .padright{
+    padding-right: 0px;
+  }
+  .padbtn{
+    padding-right: 0px;
+    margin-right: -8px;
+  }
+}
+/* .submit {
+  margin-top: 20px;
+} */
+/* .rightside {
+  float: right;
+  padding: 12px 49px;
+  font-size: 15px;
+} */

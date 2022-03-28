@@ -1,0 +1,175 @@
+<form [formGroup]="basicSubmitForm" (ngSubmit)="onSubmitBasic()">
+  <div class="">
+    <div class="row spacee">
+      <div class=" col-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="firstname" class="">Handle<span class="estrict">*</span></label>
+          <input formControlName="slug" type="text" class="form-control design-input" (blur)="onBlurslug()" />
+          <div class="errormsgcolor" *ngIf="f.slug.invalid && f.slug.dirty && f.slug.errors?.required">
+            Handle is required
+          </div> 
+          <div class="errormsgcolor" *ngIf="f.slug.invalid && f.slug.dirty && f.slug.errors?.pattern">
+            Handle is not valid
+          </div>
+          <label name="successmsgslug" *ngIf="successmsgslug" class="submitmsgcolor">{{ successmsgslug }}</label>
+          <label name="errormsgslug" *ngIf="Errormsgslug" class="errormsgcolor">{{ Errormsgslug }}</label>
+          <div *ngIf="loadingurl" class="col-xs-4">
+            <div class="loadertext">saving...</div>
+          </div>
+        </div>
+      </div>
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="email" class="">Email</label>
+          <input formControlName="email" class="form-control design-input" type="email" [ngClass]="{'disable-control': f.email.disabled === true }" />
+        </div>
+      </div>
+    </div>
+    <div class="row spacee">
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="firstname" class="">First Name<span class="estrict">*</span></label>
+          <input name="firstname" formControlName="firstname" type="input" class="form-control  design-input" />
+          <div class="errormsgcolor" *ngIf="f.firstname.dirty && f.firstname.errors?.required">
+            First name is required
+          </div>
+        </div>
+      </div>
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="lastname" class="">Last Name<span class="estrict">*</span></label>
+          <input name="lastname" formControlName="lastname" type="input" class="form-control  design-input" />
+          <div class="errormsgcolor" *ngIf="f.lastname.dirty && f.lastname.errors?.required">
+            Last name is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row spacee">
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="phonenumber" class="">Phone Number<span class="estrict">*</span></label>
+          <select formControlName="country_code" id="dropdown" [ngClass]="{'disable-control': f.phone.disabled === true }">
+            <option *ngFor="let countrycode of countrycodes" [value] = "countrycode.dial" >
+              {{countrycode.code}}  {{countrycode.dial}}
+            </option>
+          </select>
+          <input name="contact" formControlName="phone" type="input" class="form-control idropdown design-input" [ngClass]="{'disable-control': f.phone.disabled === true }" />
+          <div *ngIf="
+              f.phone.errors?.pattern ||
+              f.phone.errors?.minlength ||
+              f.phone.errors?.maxlength
+            " class="errormsgcolor">
+            Mobile no. should be 10 digit
+          </div>
+          <div class="errormsgcolor" *ngIf="f.phone.dirty && f.phone.errors?.required">
+            Phone is required
+          </div>
+        </div>
+      </div>
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown location-sect">
+          <label for="currentcity" class="">Location<span class="estrict">*</span></label>
+          <span class="input-box-cont">
+            <fa-icon class="box-ico" [icon]="locationMarker"></fa-icon>
+            <span class="input-box">
+              <app-suggestion [textBoxClass]="'input-border-less form-control'" [data]="locations"
+                [config]="suggestionConfig" (type)="search($event)" (selected)="locationSelected($event)">
+              </app-suggestion>
+            </span>
+          </span>
+          <input hidden name="city" formControlName="city" type="input" class="form-control" />
+          <div class="errormsgcolor" *ngIf="f.city.dirty && f.city.errors?.required">
+            Location is required
+          </div>
+          <div *ngIf="f.city.errors?.pattern" class="errormsgcolor">
+            Location should be in alphabets
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row spacee">
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <div class="white-space">
+            <div>
+              <label for="gender" class="">Gender<span class="estrict">*</span></label>
+            </div>
+            <button type="button" class="radiobtn" [ngClass]="{ active: profile.gender == 'Male' }"
+              (click)="selectGender('Male')">
+              Male
+            </button>
+            <button type="button" class="radiobtn" [ngClass]="{ active: profile.gender == 'Female' }"
+              (click)="selectGender('Female')">
+              Female
+            </button>
+            <button type="button" class="radiobtn" [ngClass]="{ active: profile.gender == 'Others' }"
+              (click)="selectGender('Others')">
+              Others
+            </button>
+            <input formControlName="gender" type="hidden" />
+          </div>
+          <div class="errormsgcolor" *ngIf="f.gender.dirty && f.gender.errors?.required">
+            Gender is required
+          </div>
+        </div>
+      </div>
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="dob" class="">Date of birth<span class="estrict">*</span></label>
+          <input name="dob" readonly="readonly" formControlName="dateofbirth" class="form-control design-input"
+            bsDatepicker [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-8 col-lg-7">
+        <label for="social" class="design-label"> Social Media Links</label>
+        <div class="social-links-cont">
+          <div class="social-link-item" (click)="onSocialClick('facebook')"
+            [ngClass]="{ active: socialSelected === 'facebook' }">
+            <i class="social-link-ico fb" [ngClass]="{ active: profile.social.facebook }">&nbsp;</i>
+          </div>
+          <div class="social-link-item" (click)="onSocialClick('twitter')"
+            [ngClass]="{ active: socialSelected === 'twitter' }">
+            <i class="social-link-ico tw" [ngClass]="{ active: profile.social.twitter }"></i>
+          </div>
+          <div class="social-link-item" (click)="onSocialClick('linkedin')"
+            [ngClass]="{ active: socialSelected === 'linkedin' }">
+            <i class="social-link-ico li" [ngClass]="{ active: profile.social.linkedin }"></i>
+          </div>
+          <div class="social-link-item" (click)="onSocialClick('snapchat')"
+            [ngClass]="{ active: socialSelected === 'snapchat' }">
+            <i class="social-link-ico sc" [ngClass]="{ active: profile.social.snapchat }"></i>
+          </div>
+          <div class="social-link-item" (click)="onSocialClick('pinterest')"
+            [ngClass]="{ active: socialSelected === 'pinterest' }">
+            <i class="social-link-ico pi" [ngClass]="{ active: profile.social.pinterest }"></i>
+          </div>
+          <div class="social-link-item" (click)="onSocialClick('youtube')"
+            [ngClass]="{ active: socialSelected === 'youtube' }">
+            <i class="social-link-ico yt" [ngClass]="{ active: profile.social.youtube }"></i>
+          </div>
+          <div class="arrow-box" *ngIf="socialSelected">
+            <input type="text" class="form-control design-input" formControlName="url"
+              (blur)="saveSocialLink(socialSelected)" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-11 col-lg-12">
+        <div class="equal">
+          <button class="done-btn float-right" type="submit">
+            Submit
+          </button>
+        </div>
+        <label name="successmsg" *ngIf="successMessage" class="submitmsgcolor">{{ successMessage }}</label>
+        <label name="errormsg" *ngIf="errorMessage" class="errormsgcolor">{{
+          errorMessage
+        }}</label>
+        <label *ngIf="loading" class="col-xs-4 submitmsgcolor">Saving...</label>
+      </div>
+    </div>
+  </div>
+</form>

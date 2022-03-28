@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="locationtravelledSubmitForm" (ngSubmit)="onSubmitlocationtravelled()">
+      <div class="row">
+        <div class="col-10 col-md-6 col-lg-7 col-xl-5">
+          <div>
+            <div class="localign">
+              <label for="exampleEmail11">Location Travelled</label>
+              <input class="form-control design-input" formControlName="label" ngx-google-places-autocomplete
+                #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" #myg (blur)="emptytext()" />
+            </div>
+            <div class="spaceuptodown location-count" *ngIf="locations">
+              <span>{{ locations.length }} Destinations</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 col-lg-4">
+          <div class="spaceuptodown">
+            <div class="add">
+              <button class="done-btn float-left" type="submit">+ Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="locations && locations.length > 0">
+        <div class="col-12">
+          <div class="loc-item" *ngFor="let location of locations">
+            <label class="item-label" title="{{ location.location }}">{{ location.location | slice: 0:20 }}
+              <i class="fa fa-times design-delete" aria-hidden="true" [title]="'Click to delete ' + location.location"
+                (click)="deleteLocation(location.influencerlocationId)"></i>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="errormsgcolor" *ngIf="f.label.dirty && f.label.errors?.required">Location is required</div>
+          <label name="successmsg" *ngIf="successMessage" class="submitmsgcolor">{{ successMessage }}</label>
+          <label name="errormsg" *ngIf="errorMessage" class="errormsgcolor">{{
+            errorMessage
+          }}</label>
+          <label name="loading" *ngIf="loading">Saving...</label>
+        </div>
+      </div>
+      <input type="text" formControlName="country" hidden>
+    </form>
+  </div>
+</div>

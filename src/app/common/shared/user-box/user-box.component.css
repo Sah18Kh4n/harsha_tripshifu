@@ -1,0 +1,60 @@
+.user-option-container {
+  /* border: solid 1px #707070;
+    background-color: #ffffff;
+    width: 7%;
+    float: right;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 25px 20px;
+    margin-top: 26px; */
+  border: solid 1px #707070;
+  background-color: #ffffff;
+  width: 26%;
+  float: right;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  text-align: center;
+  padding: 2% 1%;
+  margin-top: 32px;
+  margin-right: -27px;
+}
+
+.btn-user-option {
+  background: none;
+  border: none;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+  .user-option-container {
+    border: solid 1px #707070;
+    background-color: #ffffff;
+    width: 10% !important;
+    float: right;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+    padding: 2% 1%;
+    margin-top: 49px;
+    margin-right: -27px;
+  }
+}
+@media (min-width: 320px) {
+  .user-option-container {
+    margin-top: 49px;
+    width: 100px;
+  }
+}
+@media (min-width: 768px) {
+  .user-option-container {
+    width: 14%;
+  }
+}
+@media (min-width: 1440px) {
+  .user-option-container {
+    width: 114px !important;
+  }
+}

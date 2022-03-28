@@ -1,0 +1,204 @@
+<div class="background-img">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <app-content></app-content>
+      </div>
+      <div class="col-12 col-md-6">
+        <div id="signUp" class="mod-box">
+          <div class="row">
+            <div class="col-6 p-0">
+              <a routerLink="/account/login">
+                <span class="signin-box">
+                  <span class="signin">Sign In</span>
+                </span>
+              </a>
+            </div>
+            <div class="col-6 p-0">
+              <div class="signup-box" class="signin-box active-link">
+                <span class="signin">Sign Up</span>
+              </div>
+            </div>
+          </div>
+          <div class="sign-social">
+            <div class="row">
+              <div class="col-12">
+                <div class="welcome">
+                  <span class="title">Sign Up</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="fb-btn social-btn" (click)="signInWithFB()">
+                  <span class="fb-icon fa fa-2x fa-facebook"></span>
+                  <span class="border-line"></span>
+                  <div class="btn-txt">Sign Up with Facebook</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="google-btn social-btn" (click)="signInWithGoogle()">
+                  <span class="fb-icon fa fa-2x fa-google"></span>
+                  <span class="border-line"></span>
+                  <div class="btn-txt">Sign Up with Google</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="otp-btn social-btn" (click)="toggleGetOtp()">
+                  <span class="fb-icon fa fa-2x fa-mobile"></span>
+                  <span class="border-line"></span>
+                  <div class="btn-txt">Sign Up with OTP</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="signup-content">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmitSignup()">
+              <div class="row mt-4">
+                <div class="col-12 spacetoleft">
+                  <label for="exampleEmail11">Name</label>
+                  <input type="text" formControlName="firstname" class="form-control design-input" />
+                </div>
+                <div class="validate-name-msg">
+                  <div class="col-12">
+                    <div *ngIf="submitted && f.firstname.errors?.pattern" class="errormsgcolor validate-name-size">Name
+                      should be in alphabets</div>
+                    <div class="errormsgcolor validate-name-size" *ngIf="submitted && f.firstname.errors?.required">Name
+                      is
+                      required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 pt-2 spacetoleft">
+                  <label for="exampleEmail11">Email</label>
+                  <input type="email" formControlName="email" class="form-control design-input" />
+                </div>
+                <div class="validate-email-msg">
+                  <div class="col-12">
+                    <div class="errormsgcolor validate-email-size" *ngIf="submitted && f.email.errors?.required">Email
+                      is required</div>
+                    <div class="errormsgcolor validate-email-size" *ngIf="submitted && f.email.errors?.email">Email is
+                      invalid</div>
+                    <div class="errormsgcolor validate-email-size" *ngIf="submitted && f.email.errors?.duplicate">Email
+                      already existing</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class=" col-12 pt-2 spacetoleft">
+                  <div class="spaceupdown">
+                    <label for="exampleEmail11">Phone Number</label>
+                    <select formControlName="country_code" id="dropdown">
+                      <option *ngFor="let countrycode of countrycodes" [value]="countrycode.dial">
+                        {{countrycode.code}} {{countrycode.dial}}
+                      </option>
+                    </select>
+                    <input name="contact" formControlName="phone" type="input"
+                      class="form-control idropdown design-input" />
+                    <div class="validate-error-msg">
+                      <div class="col-12 px-0">
+                        <div *ngIf="
+                    submitted && f.phone.errors?.pattern ||
+                    submitted && f.phone.errors?.minlength ||
+                    submitted && f.phone.errors?.maxlength
+                  " class="validate-error-size errormsgcolor">
+                          Mobile no. should be 10 digit
+                        </div>
+                        <div class="errormsgcolor validate-error-size" *ngIf="submitted && f.phone.errors?.required">
+                          Phone is required
+                        </div>
+                        <div class="errormsgcolor validate-error-size" *ngIf="submitted && f.phone.errors?.duplicate">
+                          Phone already existing</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 pt-2 spacetoleft">
+                  <div class="eye-icon">
+                    <label class="lbl">New password</label>
+                    <span class="eye" (click)="toggleNewPassword()">
+                      <i class="fa" [ngClass]="newPasswordClass"></i>
+                    </span>
+                  </div>
+                  <input #newPassword name="total" formControlName="password" type="password"
+                    class="form-control design-input">
+                </div>
+                <div class="validate-error-msg">
+                  <div class="col-12">
+                    <div class="errormsgcolor validate-error-size" *ngIf="submitted && f.password.errors?.pattern">
+                      It should contain an uppercase, number & special character</div>
+                    <div class="errormsgcolor validate-error-size"
+                      *ngIf="submitted && f.password.errors?.required || submitted && f.password.errors?.minlength">
+                      Password should have minimum 7 characters</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 pt-2 spacetoleft">
+                  <div class="eye-icon">
+                    <label class="lbl">Confirm password</label>
+                    <span class="eye" (click)="toggleConfirmPassword()">
+                      <i class="fa" [ngClass]="confirmPasswordClass"></i>
+                    </span>
+                  </div>
+                  <input #confirmPassword name="total" formControlName="confirmpassword" type="password"
+                    class="form-control design-input">
+                </div>
+                <div class="validate-cpassword-msg">
+                  <div class="col-12">
+                    <div class="errormsgcolor validate-cpassword-size"
+                      *ngIf="submitted && f.confirmpassword.errors?.required">Password is required</div>
+                    <div class="errormsgcolor validate-cpassword-size"
+                      *ngIf="submitted && f.confirmpassword.touched && f.confirmpassword.errors === null && f.confirmpassword.value !== f.password.value">
+                      Password is not matching</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 signup">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="terms">
+                        <span>
+                          By clicking Sign Up, You agree to Tripshifu's
+                          <a class="link" [href]="storeBase + 'user-agreement'" target="_blank">Terms & Conditions</a>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <button class="done-btn float-right signup-btn">Sign up</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="error-msg-size">
+                <div class="row">
+                  <div class="col-12">
+                    <label name="loading" *ngIf="loading">Please wait...</label>
+                    <label name="errormsg" *ngIf="errorMessage" class="errormsgcolor">{{errorMessage}}</label>
+                    <label name="successmsg" *ngIf="successmsg" class="submitmsgcolor">{{successmsg}}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <span class="signin-here">Already a Member ?<a class="signin-link"
+                      routerLink="/account/login">&nbsp;Login here</a></span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

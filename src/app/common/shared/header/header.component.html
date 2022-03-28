@@ -1,0 +1,27 @@
+<div class="">
+  <div class="header">
+    <div class="logo-cont">
+      <i class="fa fa-bars hamburger" (click)="onToggleSidebar()"></i>
+      <a routerLink="/profile">
+        <img class="logo" src="https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/tripshifu-logo-black.svg" />
+      </a>      
+    </div>
+    <div class="float-right">
+      <app-dropdown-menu></app-dropdown-menu>
+    </div>
+    <div class="float-right">
+      <span class="search-bar">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="text" class="searchbox" placeholder="Search" />
+        <div class="clear"></div>
+      </span>
+    </div>
+    <div class="float-right">
+      <span class="link-menu-cont">
+        <span class="link-menu" title="Click to view the profile" (click)="viewProfile()"><i class="fa fa-eye"></i>View My Diary</span>
+      </span>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <app-sidebar #sidebar></app-sidebar>
+</div>

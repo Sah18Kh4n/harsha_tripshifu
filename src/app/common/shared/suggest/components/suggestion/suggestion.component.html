@@ -1,0 +1,13 @@
+<div class="suggestion-cont" *ngIf="defaultConfig">
+  <input [formControl]="query" [ngClass]="textBoxClass" (keydown)="inputChange()" (focus)="onFocus()" (click)="onFocus()" type="text" class="keyword" autocomplete="off" [placeholder]="placeholder" />
+  <div class="results" *ngIf="data && data.length > 0">
+    <ul class="filter-select">
+      <li *ngFor="let entity of data" class="filter-select-list" (click)="setInput(entity)">{{ entity.value }} <span *ngIf="entity.disabled">&nbsp;({{ entity.disableText }})</span></li>
+    </ul>
+  </div>
+  <div class="results" *ngIf="data && data.length === 0">
+    <ul class="filter-select">
+      <li class="filter-select-list">No results</li>
+    </ul>
+  </div>
+</div>

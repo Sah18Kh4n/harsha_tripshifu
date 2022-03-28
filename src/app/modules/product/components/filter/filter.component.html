@@ -1,0 +1,4 @@
+<div class="filter-sect" *ngIf="filters && filters.tags.length > 0">
+  <span [ngClass]="'filter-item ' + checkFilter(tag)" *ngFor="let tag of filters.tags" (click)="toggleFilter(tag.tagId)">{{ tag.tag }}</span>
+</div>
+<div class="clear"></div>

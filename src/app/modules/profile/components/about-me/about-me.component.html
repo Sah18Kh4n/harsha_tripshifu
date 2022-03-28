@@ -1,0 +1,64 @@
+<div class="">
+  <form [formGroup]="aboutForm" (ngSubmit)="onSubmitAbout()">
+    <div class="row">
+      <div class="col-12">
+        <div class="">
+        <div class="spaceupdown">
+          <div class="aboutme">
+            <label for="exampleEmail11">About Me<span class="estrict">*</span></label>
+            <textarea
+              name="text"
+              formControlName="about"
+              (input)="updateDescCharCount()"
+              class="form-control abtsize"
+              rows="8"
+              cols="195"
+            ></textarea>
+            <div class="hint-sect">
+              <span class="hint"
+                >{{ descCharCount }} characters remaining
+              </span>
+            </div>
+            <div class="clear"></div>
+            <div
+              class="errormsgcolor"
+              *ngIf="f.about.dirty && f.about.errors && f.about.errors.required"
+            >
+              About is required
+            </div>
+            <div
+              class="errormsgcolor"
+              *ngIf="f.about.dirty && f.about.errors && f.about.errors.maxlength"
+            >
+              This is too long
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <label name="errormsg" *ngIf="errorMessage" class="errormsgcolor">{{
+          errorMessage
+        }}</label>
+        <label name="spinner" *ngIf="loading" class="submitmsgcolor"
+          >saving...</label
+        >
+        <label
+          name="successmsg"
+          *ngIf="successMessage"
+          class="submitmsgcolor"
+          >{{ successMessage }}</label
+        >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="">
+        <button class="done-btn float-right" type="submit">Submit</button>
+      </div>
+      </div>
+    </div>
+  </form>
+</div>

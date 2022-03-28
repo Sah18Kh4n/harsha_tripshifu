@@ -1,0 +1,39 @@
+.toaster {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: calc(50% - 125px);
+  display: block;
+  width: 250px;
+  padding: 1.3rem 1.5rem;
+  background: #FFF;
+  border: 1px solid #f06257;
+  border-radius: 0 0 2rem 2rem;
+}
+.icon-cont {
+  display: block;
+  float: left;
+  margin: 0 0.8rem 0 0;
+}
+.icon-cont .icon.error {
+  background: url(https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/error.svg) no-repeat center center;
+  display: block;
+  width: 35px;
+  height: 35px;
+}
+.message-cont {
+  display: block;
+  float: left;
+}
+.message-cont .toast-title {
+  color: #f06257;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  font-family: 'Helvetica-Bold';
+  margin: 0 0 0.3rem 0;
+}
+.message-cont .message {
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  color: #707070;
+}

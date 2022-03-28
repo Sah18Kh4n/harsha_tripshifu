@@ -1,0 +1,8 @@
+<div *ngIf="profile" class="container-width-right">
+  <app-profile-header [profile]="profile" [updatedSlug]="slug"></app-profile-header>
+  <app-email-verification></app-email-verification>
+  <div class="container-fluid">
+    <app-profile-body [profile]="profile" (slugChange)="onSlugChange($event)"></app-profile-body>
+  </div>
+</div>
+

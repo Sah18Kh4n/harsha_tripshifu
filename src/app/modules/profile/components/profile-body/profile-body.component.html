@@ -1,0 +1,65 @@
+<div class="profile-body-sect">
+  <div class="row">
+    <div class=" col-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="min-higth spacetodiv">
+        <div>
+          <nav>
+            <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+              <li>
+                <a class="nav-item nav-link border-class tabcolor active" id="nav-basic-tab" data-toggle="tab"
+                  role="tab" href="#nav-basic" aria-controls="nav-basic" aria-selected="false"><span
+                    class="f">Profile</span></a>
+              </li>
+              <li>
+                <a class="nav-item nav-link border-class tabcolor" id="nav-profile-tab" data-toggle="tab" role="tab"
+                  href="#nav-profile" aria-controls="nav-profile" aria-selected="false"><span class="f">About</span></a>
+              </li>
+              <li>
+                <a class="nav-item nav-link border-class tabcolor" id="nav-contact-tab" data-toggle="tab" role="tab"
+                  href="#nav-contact" aria-controls="nav-contact" aria-selected="false"><span
+                    class="f">Interest</span></a>
+              </li>
+              <!-- <li>
+                <a class="nav-item nav-link border-class tabcolor" id="nav-location-tab" data-toggle="tab" role="tab"
+                  href="#nav-location" aria-controls="nav-contact" aria-selected="false"><span
+                    class="f">Location</span></a>
+              </li> -->
+              <li>
+                <a class="nav-item nav-link border-class tabcolor" id="nav-location-tab" data-toggle="tab" role="tab"
+                  href="#nav-gallery" aria-controls="nav-contact" aria-selected="false">
+                  <span class="f">Connect Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a class="nav-item nav-link border-class tabcolor" id="nav-bank-details-tab" data-toggle="tab" role="tab"
+                  href="#nav-bank-details" aria-controls="nav-bank-details" aria-selected="false"><span class="f">Bank Details</span></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- </div> -->
+        <div class="tab-content content-border" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-basic" role="tabpanel" aria-labelledby="nav-basic-tab">
+            <app-basic [profile]="profile" (slugChange)="onSlugChange($event)"></app-basic>
+          </div>
+          <div class="tab-pane fade show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <app-about-me [profile]="profile"></app-about-me>
+          </div>
+          <div class="tab-pane fade show" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <app-interest></app-interest>
+          </div>
+          <!-- <div class="tab-pane fade show" id="nav-location" role="tabpanel" aria-labelledby="nav-location-tab">
+            <app-location-travelled [profile]="profile">
+            </app-location-travelled>
+          </div> -->
+          <div class="tab-pane fade show" id="nav-gallery" role="tabpanel" aria-labelledby="nav-gallery-tab">
+            <app-instagram [profile]="profile"></app-instagram>
+          </div>
+          <div class="tab-pane fade show" id="nav-bank-details" role="tabpanel" aria-labelledby="nav-bank-details-tab">
+            <app-bank-details [profile]="profile"></app-bank-details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

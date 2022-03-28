@@ -1,0 +1,108 @@
+<div *ngIf="profile">
+  <div class="header">
+    <img class="logo" src="https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/tripshifu-logo-black.svg" />
+    <div class="search-box">
+      <input type="text" name="" placeholder="Search" style="height: 36.6px;
+          border-radius: 41px; border: solid 1px #707070; padding: 12px 20px 12px
+          28px;" />
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+    <div class="float-right">
+      <app-dropdown-menu></app-dropdown-menu>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 offset-md-1 col-md-10">
+        <div class="body">
+          <div class="title">
+            <h1 class="main-title">Welcome to Tripshifu!</h1>
+          </div>
+          <div class="welcome1">
+            <div class="row">
+              <div class="col-12 col-md-12">
+                Hello {{name}},
+              </div>
+            </div>
+          </div>
+          <div class="subline1">
+            <div class="row">
+              <div class="col-12">
+                We need you to fill a few details before you can start building your Travel Diary!
+              </div>
+            </div>
+          </div>
+          <div class="img-rectangle">
+            <div class="img-opacity"></div>
+            <div class="skip-content">
+              <div class="line">
+              </div>
+            <div class="steps-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 main-div">
+                <div class="steps">
+                  <div class="points"> 
+                    <span>1</span> 
+                  </div>
+                </div>
+                  <div class="steps-heading">
+                    Create Profile
+                  </div>
+                  <div class="steps-description">
+                    Yay! Now that you are here, lets get to know each other. Tell us a bit more about yourself
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="steps">
+                  <div class="points"> 
+                    <span>2</span> 
+                  </div>
+                </div>
+                  <div class="steps-heading">
+                    Build Your Diary
+                  </div>
+                  <div class="steps-description">
+                    Add you favourite Destinations, Stays and Itineraries to build your travel diary
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="steps">
+                  <div class="points"> 
+                    <span>3</span> 
+                  </div>
+                </div>
+                <div class="steps-heading">
+                  Recommend
+                </div>
+                <div class="steps-description">
+                  Share your travel diary with your social circle & recommend them your favorites.
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="steps">
+                  <div class="points"> 
+                    <span>4</span> 
+                  </div>
+                </div>
+                <div class="steps-heading">
+                  Earn
+                </div>
+                <div class="steps-description">
+                  Everytime someone books your favorites through your travel diary, you earn!
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          <div class="skip-container">
+            <div class="text-right my-5 text-md-right">
+              <!-- <a class="skip" routerLink="/product/listings/onboard">Skip this step</a> -->
+            </div>
+          </div>
+          <app-profileonbordingbody [profile]="profile"></app-profileonbordingbody>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

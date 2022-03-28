@@ -1,0 +1,469 @@
+<app-email-verification *ngIf="onboarding === 'false'"></app-email-verification>
+<section class="edit-listing-sect">
+  <div class="add-listing">
+    <div class="container-fluid">
+      <div class="row no-gutters">
+        <div class="col-12 col-md-12 col-lg-7">
+          <div class="products-left-panel">
+            <div class="header-sect">
+              <h1 class="sect-head" *ngIf="this.filters.locationId">
+                Edit Diary
+              </h1>
+              <h1 class="sect-head" *ngIf="!this.filters.locationId">
+                My Travel Diary
+              </h1>
+              <button [ngStyle]="doneBtnStyle" (click)="done()" class="submit-btn float-right ml-3 back-btn">
+                Back
+              </button>
+            </div>
+            <div class="breadcrumb-cont editlisting">
+              <a [routerLink]="backLink" class="lbl first">My Diary</a>
+              <span class="lbl">></span>
+              <span class="lbl last">Edit Diary</span>
+            </div>
+            <div class="clear"></div>
+            <form [formGroup]="locationForm">
+              <div class="location-sect">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <span class="desc-label d-block mb-2">Enter destination you want to add</span>
+                    <span class="input-box-cont float-md-left">
+                      <fa-icon class="box-ico" [icon]="locationMarker"></fa-icon>
+                      <span class="input-box">
+                        <app-suggestion [textBoxClass]="'input-border-less'" [data]="locations"
+                          [config]="suggestionConfig" (type)="search($event)" (selected)="locationSelected($event)">
+                        </app-suggestion>
+                      </span>
+                    </span>
+                    <input type="hidden" formControlName="locationId" />
+                    <input type="hidden" formControlName="location_name" />
+                  </div>
+                </div>
+              </div>
+              <div class="loc-img-sect">
+                <div class="row">
+                  <div class="col-6 d-lg-none">
+                    <span class="upload-hint">
+                      Select your own cover image for the destination
+                    </span>
+                  </div>
+
+                  <div class="col-6 col-lg-5 col-xl-4">
+                    <span class="desc-label d-none d-lg-block">Cover Image</span>
+                    <span (click)="browseLocationImage()" class="upload-menu">
+                      <fa-icon class="upload-ico" [icon]="uploadIcon"></fa-icon>
+                      <img class="img-fluid" *ngIf="tempLocationImage" [src]="tempLocationImage" alt="" />
+                    </span>
+                    <input #locationImage formControlName="locationImage" type="file"
+                      (change)="addLocationImage($event)" hidden />
+                  </div>
+
+                  <div class="col-12 col-lg-7 col-xl-8">
+                    <div class="desc-sect">
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="desc-label">Tell us more about the destination
+                            in
+                            your words<span
+                              style="font-size: 0.7rem; font-family: 'Helvetica-Bold';"></span></label>
+                          <textarea formControlName="description" class="desc-box"
+                            (input)="updateDescCharCount()"></textarea>
+                          <div class="hint-sect">
+                            <span class="hint">{{ descCharCount }} characters remaining
+                            </span>
+                          </div>
+                          <div class="error-sect">
+                            <span class="error">
+                              <span *ngIf="
+                                    locationFormControl.description.invalid &&
+                                    (locationFormControl.description.dirty ||
+                                      locationFormControl.description.touched)
+                                  ">
+                                <span class="" *ngIf="
+                                      locationFormControl.description.errors.required
+                                    ">Description is required</span>
+                                <span class="" *ngIf="
+                                      locationFormControl.description.errors.maxlength
+                                    ">Description can't be too long</span>
+                              </span>
+                              <span class="locmsg" [ngClass]="responseMessageClass"
+                                *ngIf="locationMessage">{{ locationMessage }}</span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <input type="button" value="Submit" formControlName="saveLocation"
+                            class="submit-btn float-right" (click)="submitLocationForm()" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="product-item opt-img-space">
+                    <div class="opt-img-txt" *ngIf="locationListingId !== null">
+                      <span class="desc-label d-lg-block">Upload your personal images for this destination.</span>
+                    </div>
+
+                    <div class="row mt-3">
+                      <div class="col-12">
+                        <div *ngIf="locationListingId !== null && locOptImg.length > 0">
+                          <p style="font-size: 0.8rem;">*Drag and drop to reorder images</p>
+                        </div>
+                        <div class="prod-images-outer" cdkDropListGroup *ngIf="locOptImg">
+                          <div class="prod-img-sect" *ngIf="locationListingId && locOptImg.length < 7">
+                            <div class="prod-img-thumb">
+                              <div class="prod-new-image" title="Click to upload new image" (click)="browseOptionalLocationImage()">
+                                <fa-icon class="new-ico" [icon]="addNewIcon"></fa-icon>
+                              </div>
+                            </div>
+                          </div>
+                          <ng-container *ngFor="let image of locOptImg; let i = index">
+                            <div class="prod-img-sect" cdkDropList cdkDropListOrientation="horizontal"
+                            [cdkDropListData]="{item:image,index:i}" (cdkDropListDropped)="drop($event)">
+                              <div class="prod-img-thumb" cdkDrag [cdkDragDisabled]="!locationListingId">
+                                <div *cdkDragPlaceholder></div>
+                                <img class="img-full" [src]="image.img" alt="">
+                                <span class="close-cont" *ngIf="locationListingId">
+                                  <fa-icon class="close-ico" [icon]="closeIcon" title="Delete this image"
+                                    (click)="deleteLocationImage(i)"></fa-icon>
+                                  <fa-icon class="add-new-ico" [icon]="addNewIcon" title="Replace this image"
+                                    (click)="browseAnotherOptLocImage(i)"></fa-icon>
+                                </span>
+                              </div>
+                            </div>
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <app-crop #crop *ngIf="locationConfig" (imageCropped)="saveImage($event)"></app-crop>
+            </form>
+
+            <form [formGroup]="tempOptionalForm">
+              <input #optionalLocationImage type="file" formControlName="optLocImgCtrl" (change)="addOptionalLocationImage($event)"
+                class="d-none" />
+              <input #replacementLocationImage type="file" formControlName="repLocImgCtrl" (change)="browseReplacementOptionalLocationImage($event)"
+                class="d-none" />
+            </form>
+
+            <div class="row d-none d-lg-block">
+              <div class="col-12">
+                <hr>
+              </div>
+            </div>
+            <div class="product-sect" *ngIf="editMode">
+              <app-product-thumbnail #productThumbnail></app-product-thumbnail>
+              <form [formGroup]="tempForm">
+                <input #productImage type="file" formControlName="prodImgCtrl" (change)="addProductImage($event)"
+                  class="d-none" />
+                <input #replacement type="file" formControlName="repImgCtrl" (change)="updateImage($event)"
+                  class="d-none" />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="d-none d-lg-block col-lg-5 borderleft">
+          <div class="products-right-panel">
+            <div [ngClass]="{ 'dull-out': editMode === false }"></div>
+            <div class="panel-content" infiniteScroll [infiniteScrollDistance] [infiniteScrollThrottle] [scrollWindow]="false" (scrolled)="onScrollingProducts()">
+              <!-- <div class="row"> -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="d-none d-md-block col-md-6" *ngIf="editMode">
+                      <span class="desc-label d-none d-lg-block mb-2">What are you looking for?</span>
+                      <div class="toggle-sect">
+                        <span class="toggle-menu mr-3" [ngClass]="{'selected': displayPackage === false}"
+                          (click)="loadStays()">Stays</span>
+                        <span class="toggle-menu" [ngClass]="{'selected': displayPackage === true}"
+                          (click)="loadPackages()">Packages</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="searchBar">
+                    <div *ngIf="productType === 'stays'">
+                      <div class="search-form">
+                        <input type="text" class="form-control" id="search-text-hotel" aria-describedby="search-text-hotel" placeholder="Search..." (keyup)='emitHotelKeys($event)' autofocus>
+                      </div>
+                    </div>
+                    <div *ngIf="productType === 'experiences'">
+                      <div class="search-form">
+                        <input type="text" class="form-control" id="search-text-package" aria-describedby="search-text-package" placeholder="Search..." (keyup)='emitPackageKeys($event)' autofocus>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <!-- </div> -->
+              <div [ngClass]="{ 'border-line': showBorder === true }">
+                <div class="row no-gutters">
+                  <div class="col-lg-12">
+                    <app-filter *ngIf="displayPackage === false" [filters]="filters"
+                      (filterListings)="filterListings($event)"></app-filter>
+                    <app-filter *ngIf="displayPackage === true" [filters]="pFilters"
+                      (filterListings)="pFilterListings($event)"></app-filter>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="products-heading">
+                    <app-products *ngIf="allProducts && allProducts.length > 0" [locationId]="filters.locationId" [noMoreAllProducts]="noMoreAllProducts" [noMoreSearchProducts]="noMoreSearchProducts" [openedProduct]="openedProduct" [locationName]="locationName" [searchHotelKeyCheck]="searchHotelKeyCheck" [searchPackageKeyCheck]="searchPackageKeyCheck" (addingProduct)="addingProduct($event)" (browseImage)="onBrowseImage($event)" (replaceImage)="onBrowseAnotherImage($event)">
+                    </app-products>
+                    <app-mini-loader></app-mini-loader>
+                  </div>
+                </div>
+              </div>
+              <div class="row" *ngIf="!editMode && allProducts && allProducts.length === 0">
+                <div class="col-12">
+                  <span class="hint-sect">
+                    <label for="" class="hint">Please select location to add products</label>
+                  </span>
+                </div>
+              </div>
+                <div class="row" *ngIf="miniLoaderState === false && displayPackage === false && hotelCount === 0 && editMode">
+                  <div class="col-12">
+                    <span class="hint-sect">
+                      <label for="" class="hint">No Stays Found</label>
+                    </span>
+                  </div>
+                  <div class="col-12">
+                    <div class="suggestion-form">
+                      <div class="form-heading">
+                        <h3>Not able to find what you are looking for? We will get it done for you. Please fill Form below - </h3>
+                      </div>
+                      <form [formGroup]="suggestionForm" (ngSubmit)="onSubmitSuggestion()">
+                        <div class="form-group">
+                          <label>Destination/Property Name</label>
+                          <input type="text" formControlName="destination" class="form-control" />
+                          <div class="errormsgcolor"
+                            *ngIf="submitted && f.destination.touched && f.destination.errors?.required">
+                            Destination/Property is required
+                          </div>
+                          <div class="errormsgcolor"
+                            *ngIf="submitted && f.destination.touched && f.destination.errors?.maxlength">
+                            Destination/Property name should be less than 100 characters
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Any Other Information you want to share</label>
+                          <textarea formControlName="message" class="form-control" rows="5"></textarea>
+                          <div class="errormsgcolor"
+                            *ngIf="submitted && f.message.touched && f.message.errors?.required">
+                            Message is required
+                          </div>
+                          <div class="errormsgcolor"
+                            *ngIf="submitted && f.message.touched && f.message.errors?.maxlength">
+                            Message should be less than 800 characters
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <input type="submit" value="Submit" class="submit-btn float-right"/>
+                          <label name="successmsg" *ngIf="successmsg" class="submitmsgcolor">Feedback Sent Successfully</label>
+                          <label name="errormsg" *ngIf="Errormsg" class="errormsgcolor">Try Again</label>
+                          <label name="loading" *ngIf="loading">Saving...</label>
+                        </div>  
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" *ngIf="miniLoaderState === false && displayPackage === true && packageCount === 0 && editMode">
+                  <div class="col-12">
+                    <span class="hint-sect">
+                      <label for="" class="hint">No Packages Found</label>
+                    </span>
+                  </div>
+                  <div class="col-12">
+                    <div class="suggestion-form">
+                      <div class="form-heading">
+                        <h3>Not able to find what you are looking for? We will get it done for you. Please fill Form below - </h3>
+                      </div>
+                      <form [formGroup]="suggestionForm" (ngSubmit)="onSubmitSuggestion()">
+                        <div class="form-group">
+                          <label>Destination/Property Name</label>
+                          <input type="text" formControlName="destination" class="form-control" />
+                          <div class="errormsgcolor"
+                            *ngIf="submitted && f.destination.touched && f.destination.errors?.required">
+                            Destination/Property is required
+                          </div>
+                          <div class="errormsgcolor"
+                            *ngIf="submitted && f.destination.touched && f.destination.errors?.maxlength">
+                            Destination/Property name should be less than 100 characters
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Any Other Information you want to share</label>
+                          <textarea formControlName="message" class="form-control" rows="5"></textarea>
+                          <div class="errormsgcolor"
+                            *ngIf="submitted && f.message.touched && f.message.errors?.required">
+                            Message is required
+                          </div>
+                          <div class="errormsgcolor"
+                            *ngIf="submitted && f.message.touched && f.message.errors?.maxlength">
+                            Message should be less than 800 characters
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <input type="submit" value="Submit" class="submit-btn float-right"/>
+                          <label name="successmsg" *ngIf="successmsg" class="submitmsgcolor">Feedback Sent Successfully</label>
+                          <label name="errormsg" *ngIf="Errormsg" class="errormsgcolor">Try Again</label>
+                          <label name="loading" *ngIf="loading">Saving...</label>
+                        </div>  
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="editMode" class="d-lg-none">
+      <div class="mask"></div>
+      <div class="float-menu-sect" [ngClass]="visibility">
+        <div class="float-menu" (click)="slideUpPanel()">
+          <span class="desc-label">What are you looking for?</span>
+          <fa-icon class="menu-ico" [icon]="addProducts"></fa-icon>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="float-panel" [@togglePanel]="{ value: panelState, params: { viewportHeight: viewportHeight } }">
+        <div class="heading-content">
+          <fa-icon class="close-ico" [icon]="closeIcon" (click)="slideDownPanel()"></fa-icon>
+          <div class="clear"></div>
+          <h3 class="sect-sub-title">Select Your</h3>
+          <div class="toggle-sect">
+            <span class="toggle-menu" [ngClass]="{'selected': displayPackage === false}"
+              (click)="loadStays()">Stays</span>
+            <span class="toggle-menu mr-0" [ngClass]="{'selected': displayPackage === true}"
+              (click)="loadPackages()">Packages</span>
+          </div>
+          <div class="searchBar">
+            <div *ngIf="productType === 'stays'">
+              <div class="search-form">
+                <input type="text" class="form-control" id="search-text-hotel" aria-describedby="search-text-hotel" placeholder="Search..." (keyup)='emitHotelKeys($event)' autofocus>
+              </div>
+            </div>
+            <div *ngIf="productType === 'experiences'">
+              <div class="search-form">
+                <input type="text" class="form-control" id="search-text-package" aria-describedby="search-text-package" placeholder="Search..." (keyup)='emitPackageKeys($event)' autofocus>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <div class="products-sect" infiniteScroll [infiniteScrollDistance] [infiniteScrollThrottle] [scrollWindow]="false" (scrolled)="onScrollingProducts()" [ngStyle]="productsHeight()">
+          <div [ngClass]="{ 'border-line': showBorder === true }">
+            <div class="row">
+              <div class="col-lg-12">
+                <app-filter *ngIf="displayPackage === false" [filters]="filters"
+                  (filterListings)="filterListings($event)"></app-filter>
+
+                <app-filter *ngIf="displayPackage === true" [filters]="pFilters"
+                  (filterListings)="pFilterListings($event)"></app-filter>
+              </div>
+            </div>
+          </div>
+          <div class="row no-gutters" *ngIf="miniLoaderState === false && displayPackage === false && hotelCount === 0 && editMode">
+            <div class="col-12">
+              <span class="hint-sect">
+                <label for="" class="hint">No Stays Found</label>
+              </span>
+            </div>
+            <div class="col-12">
+              <div class="suggestion-form">
+                <div class="form-heading">
+                  <h3>Not able to find what you are looking for? We will get it done for you. Please fill Form below - </h3>
+                </div>
+                <form [formGroup]="suggestionForm" (ngSubmit)="onSubmitSuggestion()">
+                  <div class="form-group">
+                    <label>Destination/Property Name</label>
+                    <input type="text" formControlName="destination" class="form-control" />
+                    <div class="errormsgcolor"
+                      *ngIf="submitted && f.destination.touched && f.destination.errors?.required">
+                      Destination/Property is required
+                    </div>
+                    <div class="errormsgcolor"
+                      *ngIf="submitted && f.destination.touched && f.destination.errors?.maxlength">
+                      Destination/Property name should be less than 100 characters
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Any Other Information you want to share</label>
+                    <textarea formControlName="message" class="form-control" rows="5"></textarea>
+                    <div class="errormsgcolor"
+                      *ngIf="submitted && f.message.touched && f.message.errors?.required">
+                      Message is required
+                    </div>
+                    <div class="errormsgcolor"
+                      *ngIf="submitted && f.message.touched && f.message.errors?.maxlength">
+                      Message should be less than 800 characters
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Submit" class="submit-btn float-right"/>
+                    <label name="successmsg" *ngIf="successmsg" class="submitmsgcolor">Feedback Sent Successfully</label>
+                    <label name="errormsg" *ngIf="Errormsg" class="errormsgcolor">Try Again</label>
+                    <label name="loading" *ngIf="loading">Saving...</label>
+                  </div>  
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="miniLoaderState === false && displayPackage === true && packageCount === 0 && editMode">
+            <div class="col-12">
+              <span class="hint-sect">
+                <label for="" class="hint">No Packages Found</label>
+              </span>
+            </div>
+            <div class="col-12">
+              <div class="suggestion-form">
+                <div class="form-heading">
+                  <h3>Not able to find what you are looking for? We will get it done for you. Please fill Form below - </h3>
+                </div>
+                <form [formGroup]="suggestionForm" (ngSubmit)="onSubmitSuggestion()">
+                  <div class="form-group">
+                    <label>Destination/Property Name</label>
+                    <input type="text" formControlName="destination" class="form-control" />
+                    <div class="errormsgcolor"
+                      *ngIf="submitted && f.destination.touched && f.destination.errors?.required">
+                      Destination/Property is required
+                    </div>
+                    <div class="errormsgcolor"
+                      *ngIf="submitted && f.destination.touched && f.destination.errors?.maxlength">
+                      Destination/Property name should be less than 100 characters
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Any Other Information you want to share</label>
+                    <textarea formControlName="message" class="form-control" rows="5"></textarea>
+                    <div class="errormsgcolor"
+                      *ngIf="submitted && f.message.touched && f.message.errors?.required">
+                      Message is required
+                    </div>
+                    <div class="errormsgcolor"
+                      *ngIf="submitted && f.message.touched && f.message.errors?.maxlength">
+                      Message should be less than 800 characters
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Submit" class="submit-btn float-right"/>
+                    <label name="successmsg" *ngIf="successmsg" class="submitmsgcolor">Feedback Sent Successfully</label>
+                    <label name="errormsg" *ngIf="Errormsg" class="errormsgcolor">Try Again</label>
+                    <label name="loading" *ngIf="loading">Saving...</label>
+                  </div>  
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="products-heading">
+            <app-products *ngIf="allProducts && allProducts.length > 0" [locationId]="filters.locationId" [noMoreAllProducts]="noMoreAllProducts" [noMoreSearchProducts]="noMoreSearchProducts" [openedProduct]="openedProduct" [locationName]="locationName" [searchHotelKeyCheck]="searchHotelKeyCheck" [searchPackageKeyCheck]="searchPackageKeyCheck" (addingProduct)="addingProduct($event)" (browseImage)="onBrowseImage($event)" (replaceImage)="onBrowseAnotherImage($event)">
+            </app-products>
+            <app-mini-loader></app-mini-loader>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

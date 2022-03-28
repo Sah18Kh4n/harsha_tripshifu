@@ -1,0 +1,46 @@
+.msg {
+  min-height: 20px;
+}
+.border-line{
+  border: 1px solid #d1d1d1;
+  border-right:none ;
+  border-left: none;
+  margin: 0.5rem 0;
+}
+.borderleft {
+  border-left: 1px solid #d1d1d1;
+}
+.products-heading {
+  padding: 0 15px 0 15px;
+}
+.suggestion-form {
+  width: 80%;
+  padding-left: 15px;
+}
+.form-heading h3 {
+  font-family: 'Helvetica-Bold';
+  font-size: 1rem;
+  color: #707070;
+  padding: 7px 0px;
+}
+.sect-head, .back-btn  {
+  display: inline;
+}
+.searchBar {
+  width: 100%;
+  padding: 0rem 1rem;
+  margin: 0rem 1rem;
+}
+.prod-images-outer {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  overflow: hidden;
+}
+.opt-img-txt {
+  width: 100%;
+}
+.opt-img-space {
+  padding: 1rem;
+}

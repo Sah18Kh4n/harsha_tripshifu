@@ -1,0 +1,138 @@
+<div class="background-img">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <app-content></app-content>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="mod-box">
+          <div class="row">
+            <div class="col-6 p-0">
+              <a routerLink="/account/login">
+                <span class="signin-box active-link">
+                  <span class="signin">Sign In</span>
+                </span>
+              </a>
+            </div>
+            <div class="col-6 p-0">
+              <a routerLink="/account/signup">
+                <span class="signup-box">
+                  <span class="signin">Sign Up</span>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div id="otpForm" *ngIf="askInfo">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-12">
+                  <div class="back-link" (click)="goBack()">
+                    <fa-icon class="back-ico" [icon]="backIcon"></fa-icon>
+                    <span class="back-txt">Back</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label for="email">Email</label>
+                  <input type="text" formControlName="email" class="form-control design-input" />
+                </div>
+              </div>
+              <div>
+                <div class="row">
+                  <div class="col-12">
+                    <div *ngIf="uForm.email.touched && uForm.email.errors && uForm.email.errors.required"
+                      class="errormsgcolor validate-name-size">Email is required</div>
+                    <div *ngIf="uForm.email.touched && uForm.email.errors && uForm.email.errors.email"
+                      class="errormsgcolor validate-name-size">Not a valid email</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 pt-2">
+                  <label for="phone">Phone</label>
+                  <select formControlName="country_code" id="dropdown">
+                    <option *ngFor="let countrycode of countrycodes" [value]="countrycode.dial">
+                      {{countrycode.code}} {{countrycode.dial}}
+                    </option>
+                  </select>
+                  <input type="text" formControlName="phone" class="form-control idropdown design-input" />
+                </div>
+              </div>
+              <div>
+                <div class="row">
+                  <div class="col-12">
+                    <div *ngIf="uForm.phone.touched && uForm.phone.errors && uForm.phone.errors.required"
+                      class="errormsgcolor validate-name-size">Phone is required</div>
+                    <div
+                      *ngIf="uForm.phone.touched && uForm.phone.errors && (uForm.phone.errors.pattern || uForm.phone.errors.minlength || uForm.phone.errors.maxlength)"
+                      class="errormsgcolor validate-name-size">Not a valid phone</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div style="height: 1.5rem;">
+                    <div *ngIf="errorMessage" class="errormsgcolor validate-name-size">{{ errorMessage }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button class="done-btn float-right signup-btn">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="!askInfo">
+            <form [formGroup]="otpForm" (ngSubmit)="onSubmitOTP()">
+              <div class="row">
+                <div class="col-12">
+                  <div class="back-link" (click)="goBackToLogin()">
+                    <fa-icon class="back-ico" [icon]="backIcon"></fa-icon>
+                    <span class="back-txt">Back</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label for="otp">OTP</label>
+                  <input type="text" formControlName="otp" class="form-control design-input" />
+                </div>
+              </div>
+              <div>
+                <div class="row">
+                  <div class="col-12">
+                    <div *ngIf="f.otp.touched && f.otp.errors && f.otp.errors.required"
+                      class="errormsgcolor validate-name-size">OTP is required</div>
+                    <div *ngIf="f.otp.touched && f.otp.errors && f.otp.errors.pattern"
+                      class="errormsgcolor validate-name-size">Numbers only</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div style="height: 1.5rem;">
+                    <div *ngIf="errorMessage" class="errormsgcolor validate-name-size">{{ errorMessage }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <button type="button" *ngIf="showResend" [disabled]="!enableResend" class="resend-btn"
+                    (click)="resendOtp()">Resend
+                    OTP
+                    <span *ngIf="!enableResend">in {{ otpTimer }} sec</span></button>
+                </div>
+                <div class="col-6">
+                  <button type="submit" class="done-btn float-right signup-btn">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

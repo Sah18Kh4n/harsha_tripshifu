@@ -1,0 +1,65 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+
+<div class="body" [ngClass]="sidebarSpacing">
+
+  <div class="d-flex justify-content-around small-screen">
+    <div class="bcard justify-content-around balance">
+      <div class="add-withdraw-collect" *ngIf="total_credits_earned != null">
+        <span>{{ total_credits_earned }}</span><br>
+        <span><strong>Total Credits Earned</strong></span>
+      </div>
+    </div>
+
+    <div class="bcard d-flex justify-content-start align-items-center small-screen action">
+        <div class="add-withdraw-collect" *ngIf="total_credits_redeemed != null">
+          <span>{{ total_credits_redeemed }}</span><br>
+          <span><strong>Total Credits Redeemed</strong></span>
+        </div>
+
+        <div class="add-withdraw-collect" *ngIf="available_balance_credits != null">
+          <span>{{ available_balance_credits }}</span><br>
+          <span><strong>Available Balance Credits</strong></span>
+        </div>
+    </div>
+  </div>
+
+  <div class="payout-table">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-responsive-sm table-bordered">
+          <thead>
+            <tr>
+              <th>Ledger ID</th>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Comment</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let ledger of payoutLedgers">
+                <td>{{ ledger.pki_shifupayoutledger_id }}</td>
+                <td>{{ ledger.created }}</td>
+                <td>{{ ledger.action_desc }}</td>
+                <td>{{ ledger.comment }}</td>
+                <td>
+                  <span *ngIf="ledger.action_type === 'credit'" class="add">
+                    <strong>+{{ ledger.amount }}</strong>
+                  </span>
+                  <span *ngIf="ledger.action_type === 'debit'" class="sub">
+                    <strong>-{{ ledger.amount }}</strong>
+                  </span>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+        <button *ngIf="nxt_btn" class="done-btn float-right" id="nxt-btn" (click)="nxtLedgerPage()">Next</button>
+        <button *ngIf="pre_btn" class="done-btn float-right" id="pre-btn" (click)="preLedgerPage()">Prev</button>
+        <div *ngIf="message" id="message">
+          You are already at last record.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

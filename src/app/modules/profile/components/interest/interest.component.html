@@ -1,0 +1,60 @@
+<div class="">
+  <form [formGroup]="interestForm" (ngSubmit)="onSubmitinterest()">
+    <div class="">
+      <div class="row interest-down">
+
+        <div class="col-12 col-sm-10 col-md-12">
+          <div class="interest">
+            <div class="row">
+              <div class="col-12 col-md-12 col-xl-12">
+                <label for="interst" class="interstlabel">Interests</label>
+              </div>
+              <div class="col-10 col-md-4 col-xl-3 pr-0">
+                <div class="design-input form-control interest-sect">
+                  <i class="fa fa-search searchicon" aria-hidden="true"></i>
+                  <span class="input-box">
+                    <app-suggestion #suggest [textBoxClass]="'input-border-less'" [data]="searchResults"
+                      [config]="suggestionConfig" (type)="searchInterest($event)" (selected)="interestSelected($event)">
+                    </app-suggestion>
+                  </span>
+                  <div class="clear"></div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 pl-1 d-inline-flex interest-count">
+                <div class="d-inline-flex" *ngIf="interests">
+                  <span class="mt-4">{{ interests.length }} Interests</span>
+                  <input type="hidden" formControlName="interest" hidden />
+                </div>
+                <div class="add">
+                  <button class="done-btn float-left" type="submit">+ Add</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="interests">
+      <div class="col-12">
+        <div class="spaceupdown" *ngFor="let interest of interests">
+          <label class="item-label">
+            {{ interest.value }}
+            <i class="fa fa-times design-delete" aria-hidden="true" [title]="'Click to delete ' + interest.value"
+              (click)="deleteInterest(interest.key)"></i>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="errormsgcolor" *ngIf="f.interest.dirty && f.interest.errors?.required">Interest is required</div>
+        <label name="successmsg" *ngIf="successMessage" class="submitmsgcolor">{{ successMessage }}</label>
+        <label name="errormsg" *ngIf="errorMessage" class="errormsgcolor">{{
+          errorMessage
+        }}</label>
+        <label name="loading" *ngIf="loading">Saving...</label>
+      </div>
+    </div>
+  </form>
+</div>

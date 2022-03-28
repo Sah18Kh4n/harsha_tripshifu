@@ -1,0 +1,56 @@
+<form [formGroup]="feedbackForm" (ngSubmit)="onSubmitFeedback()">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-7">
+      <div class="spaceuptodown">
+        <label class="lbl">Feedback Category</label>
+        <select #feedbackCategory formControlName="category" class="form-control category-select">
+          <option *ngFor="let cat of categories" [value]="cat.category_id">
+            {{cat.category}}
+          </option>
+        </select>
+      </div>
+      <div class="errormsgcolor"
+        *ngIf="submitted && f.category.touched && f.category.errors?.required">
+        Category is required
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="feedbackCategory.value == 3">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-7">
+      <div class="spaceuptodown">
+        <label class="lbl">Destination/Property Name</label>
+        <input type="text" formControlName="destination" class="form-control" />
+      </div>
+      <div class="errormsgcolor"
+        *ngIf="submitted && f.destination.touched && f.destination.errors?.maxlength">
+        Destination/Property Name should be less than 700 characters
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-7">
+      <div class="spaceuptodown">
+        <label class="lbl">Feedback Message</label>
+        <textarea rows="5" name="message" formControlName="message" id="message" class="form-control design-input"></textarea>
+      </div>
+      <div class="errormsgcolor"
+        *ngIf="submitted && f.message.touched && f.message.errors?.required">
+        Feedback Message is required
+      </div>
+      <div class="errormsgcolor"
+        *ngIf="submitted && f.message.touched && f.message.errors?.maxlength">
+        Feedback Message should be less than 700 characters
+      </div>
+    </div>
+  </div>
+  <div class="row">  
+    <div class="col-12 col-sm-12 col-md-8 col-lg-7">  
+      <button class=" done-btn float-right" type="submit">
+        Submit
+      </button>
+      <label name="successmsg" *ngIf="successmsg" class="submitmsgcolor">Feedback Sent Successfully</label>
+      <label name="errormsg" *ngIf="Errormsg" class="errormsgcolor">Try Again</label>
+      <label name="loading" *ngIf="loading">Saving...</label>
+    </div>    
+  </div>  
+</form>

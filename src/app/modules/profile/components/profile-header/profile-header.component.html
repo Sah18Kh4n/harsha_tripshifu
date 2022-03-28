@@ -1,0 +1,73 @@
+<div class="main-content--wrapper">
+  <div class="main-content--container">
+    <div class="main-card mb-3">
+      <form [formGroup]="uploadform">
+        <div class="cover-img-container">
+          <div class="image-container" (click)="browseBanner()">
+            <img class="cover-img img-fluid" *ngIf="profilecover" [src]="profilecover" />
+            <img *ngIf="!profilecover" class="cover-img img-fluid"
+              src="https://res.cloudinary.com/funstaytest/image/fetch/c_crop,w_1500,h_500,x_150,y_150/https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/influencer-landing.png" />
+            <i class="fa fa-camera-retro cameraicon" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="avatar-container">
+          <div class="imgsizediv" (click)="browseAvatar()">
+            <img *ngIf="profiledp" [src]="profiledp" class="imgsize-dp sizeimg img-fluid" image-Height="600px"
+              image-Width="600px" />
+            <img *ngIf="!profiledp" image-Height="600px" image-Width="600px" class="imgsize-dp sizeimg img-fluid"
+              src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/default-avatar.jpg" />
+            <div class="btn-inner-div">
+              <div class="btn-container">
+                <div class="btndivf">
+                  <i class="fa fa-camera-retro dpcameraicon" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <input hidden #avatar formControlName="avatar" type="file" (change)="addAvatar($event)" />
+        <input hidden #banner formControlName="banner" type="file" (change)="addBanner($event)" />
+      </form>
+      <app-crop #crop *ngIf="avatarConfig" (imageCropped)="saveImage($event)"></app-crop>
+    </div>
+  </div>
+  <div class="share-sec">
+    <div class="row no-gutters">
+      <div class="col-12">
+        <div class="showTime2">
+          <div class="copylocation">
+            <span class="your-profile">My Travel Diary:</span>
+            <a class="linkcolor" [href]="href" target="_blank">{{ href }}</a>
+          </div>
+          <div class="icons">
+            <i class="fa-2x fa fa-share-alt text-muted mr-1 icon-pos">&nbsp;<span class="share-ico">Share:</span></i>
+            <div title="Share on Facebook" class="design-btn fb fa-2x" mat-icon-button shareButton="facebook" #fbBtn
+              [style.color]="share.prop.facebook.color" [url]="href">
+              <fa-icon [icon]="share.prop.facebook.icon" size="lg" class="icon-pos"></fa-icon>
+            </div>
+            <div title="Share on Twitter" class="design-btn tw fa-2x" mat-icon-button shareButton="twitter" #twtBtn
+              [style.color]="share.prop.twitter.color" [url]="href">
+              <fa-icon [icon]="share.prop.twitter.icon" size="lg" class="icon-pos"></fa-icon>
+            </div>
+            <div title="Share on Whatsapp" class="design-btn wt fa-2x" mat-icon-button shareButton="whatsapp" #wtsBtn
+              [style.color]="share.prop.whatsapp.color" [url]="href">
+              <fa-icon [icon]="share.prop.whatsapp.icon" size="lg" class="icon-pos"></fa-icon>
+            </div>
+            <div title="Share on Mail" class="movedown">
+              <div class="design-btn2 email-btn-sec">
+                <share-buttons [include]="['email']" [size]="3" [url]="href"></share-buttons>
+              </div>
+            </div>
+            <div (click)="toggle()"  title="Copy Link" class="movedown1 fa-2x"  mat-icon-button shareButton="copy" #wtsBtn
+            [style.color]="share.prop.copy.color" [url]="href">
+              <div  *ngIf="!show"  class="design-btn3 link-btn-sec">
+                <fa-icon [icon]="share.prop.copy.icon" class="centering" size="lg"></fa-icon>
+              </div>
+            </div>
+            <i *ngIf="show" aria-hidden="true" class="fa fa-check fa-2x design-btn4"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

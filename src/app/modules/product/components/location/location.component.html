@@ -1,0 +1,16 @@
+<div class="location">
+  <div class="loc-cont loc-tile" [ngStyle]="locationImage">
+    <div title="Click to edit this Diary Entry" class="link-sect" (click)="editLocation()"></div>
+    <div class="position-relative h-100">
+      <fa-icon title="Delete this location" class="close-ico" [icon]="closeIcon" (click)="deleteLocation()"></fa-icon>
+      <div class="loc-title">{{ location.location }}</div>
+      <div class="product-count">Products: {{ location.productCount }}</div>
+    </div>
+  </div>
+  <div class="loc-status">
+    <span [ngClass]="statusClass + ' status-ico'">
+      <fa-icon class="" [icon]="statusIcon"></fa-icon>
+    </span>
+    <span class="status-text">{{ statusText }}</span>
+  </div>
+</div>

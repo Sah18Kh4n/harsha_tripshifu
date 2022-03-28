@@ -1,0 +1,51 @@
+
+<p-dialog [modal]="'true'" [styleClass]="'booking-header'" [showHeader]="'false'" [closable]="'false'"
+[(visible)]="visible" [responsive]="'true'" (onHide)="onHide()">
+  <div class="">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <button type="button" class="close popup-close" (click)="close()">&times;</button>
+        <div class="">
+          <h3>BOOKING ID - {{bookingDetails.booking.booking_id}}</h3>
+          <div class="details-main">
+            <div class="tabs-outer">  
+              <nav>
+                <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <li>
+                    <a class="nav-item nav-link border-class tabcolor active" id="nav-booking-tab" data-toggle="tab"
+                      role="tab" href="#nav-booking" aria-controls="nav-booking" aria-selected="false"><span
+                        class="f">Booking Details</span></a>
+                  </li>
+                  <li>
+                    <a class="nav-item nav-link border-class tabcolor" id="nav-customer-tab" data-toggle="tab" role="tab"
+                      href="#nav-customer" aria-controls="nav-customer" aria-selected="false"><span class="f">Customer Details</span></a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="tab-content content-border" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab">
+                <p><span>Title - </span>{{bookingDetails.booking.title}}</p>
+                <p><span>No. of Guests - </span>{{bookingDetails.booking.guests}}</p>
+                <p><span>No. of Rooms - </span>{{bookingDetails.booking.rooms}}</p>
+                <p><span>No. of Beds - </span>{{bookingDetails.booking.beds}}</p>
+                <p><span>Check-in - </span>{{bookingDetails.booking.check_in}}</p>
+                <p><span>Check-out - </span>{{bookingDetails.booking.check_out}}</p>
+                <p><span>Price - </span>{{bookingDetails.booking.symbol + ' ' + bookingDetails.booking.price}}</p>
+                <p><span>Payout - </span>{{bookingDetails.booking.symbol + ' ' + bookingDetails.booking.payout}}</p>
+                <p><span>Booking Status - </span>{{bookingDetails.booking.status}}</p>
+                <!-- <p><span>Closing Amount - </span>{{bookingDetails.closing_amount + ' '}}0</p> -->
+                <p><span>Credit Earned - </span>{{bookingDetails.booking.symbol + ' ' + bookingDetails.credit}}</p>
+              </div>
+              <div class="tab-pane fade show" id="nav-customer" role="tabpanel" aria-labelledby="nav-customer-tab">
+                <p><span>Name - </span>{{bookingDetails.booking.name}}</p>
+                <p><span>Email - </span>{{bookingDetails.booking.email}}</p>
+                <p><span>Phone - </span>{{bookingDetails.booking.phone}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-dialog>

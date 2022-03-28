@@ -1,0 +1,6 @@
+<div *ngIf="userId">
+  <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+  <div class="body" [ngClass]="sidebarSpacing">
+    <app-feedbackcontainer></app-feedbackcontainer>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+.min-higth {
+  min-height: 790px;
+}
+
+.card-body .nav-link {
+  border-radius: 25px !important;
+}
+
+.tabk {
+  background-color: black !important;
+}
+
+.border-class {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.card-body {
+  background-color: black !important;
+}
+
+.main-content--container div {
+  margin-bottom: 0px !important;
+}
+
+.content-border {
+  background: #fff;
+  border: 1px solid #d1d1d1;
+  padding: 10px 10px 25px 10px;
+  margin: 0 0 15px 0;
+  border-top-right-radius: 20px;
+}
+.tabcolor {
+  font-family: Helvetica;
+  font-size: 15px;
+  text-align: left;
+  color: #707070;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #f06257 !important;
+  border-color: #d1d1d1 #d1d1d1 white !important;
+}
+.nav-tabs {
+  border: none;
+}
+.f {
+  font-size: 0.8rem;
+}
+.tabcolor {
+  border-color: #d1d1d1 #d1d1d1 #d1d1d1 !important;
+  background-color: white;
+}
+
+.paddingtodiv {
+  padding-top: 26px;
+  /* min-height: 650px; */
+  overflow: hidden;
+  background-color: white;
+}
+
+.spacetodiv {
+  padding: 10px 0px 0px 0px;
+  position: relative;
+}
+.main-content--container div {
+  margin-bottom: 0px;
+}
+.whitespace {
+  white-space: nowrap;
+}
+
+@media (min-width: 345px) {
+  .content-border {
+    border-top-right-radius: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .f {
+    font-size: 15px;
+  }
+  .content-border{
+    padding: 10px 10px 25px 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .spacetodiv {
+    padding: 0px 12rem 20px;
+  }
+  .content-border {
+    border: 1px solid #d1d1d1;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px 20px 25px;
+  }
+}

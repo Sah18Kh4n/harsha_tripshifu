@@ -1,0 +1,83 @@
+.margin-form {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.location-span {
+  background: #ffbc00;
+  border: 1px solid black;
+  border-radius: 18px;
+  padding: 0 10px;
+}
+.spaceuptodown {
+  margin: 15px 0px;
+  display: inline-block;
+}
+.loc-item {
+  display: inline-block;
+  margin: 0 10px 10px 0;
+}
+.design-input {
+  border-radius: 22px;
+  border: solid 1px #d1d1d1;
+}
+.fa-times {
+  color: #707070;
+  cursor: pointer;
+}
+.location-count{
+  display: block;
+  float: left;
+  margin: 52px 0 0 10px;
+}
+.localign{
+  display: block;
+  width: 235px;
+  float: left;
+  padding-top: 18px;
+}
+    
+
+
+@media screen and (max-width: 545px){
+.location-count{
+  margin: 25px 0 0 10px;
+}
+.add{
+  margin: 15px 0 0 0;
+}
+}
+
+@media screen and (min-width: 546px){
+  .location-count{
+    margin: 25px 0 0 10px;
+  }
+  .add{
+    margin: 15px 0 0 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .add .done-btn {
+    margin: 20px 0 0 0;
+  }
+  .localign{
+    display: block;
+    width: 200px;
+    float: left;
+  }
+  .location-count{
+    margin: 70px 0 0 10px;
+  }
+}
+@media screen and (min-width: 992px) {
+  
+}
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1600px) {
+  .localign{
+    width: 275px;
+  }
+}

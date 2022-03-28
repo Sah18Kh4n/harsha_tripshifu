@@ -1,0 +1,6 @@
+<div *ngIf="userId">
+  <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+  <section class="onboard-listing-sect" [ngClass]="sidebarSpacing">
+    <app-listings onboarding="true"></app-listings>
+  </section>
+</div>

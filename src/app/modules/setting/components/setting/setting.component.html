@@ -1,0 +1,7 @@
+<div *ngIf="isReady">
+  <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+  <app-email-verification></app-email-verification>
+  <div class="body" [ngClass]="sidebarSpacing">
+    <app-settingcontainer></app-settingcontainer>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+<image-cropper *ngIf="cropConfig" [imageChangedEvent]="imageChangedEvent" [aspectRatio]="cropConfig.aspectRatio"
+  [maintainAspectRatio]="true" [resizeToWidth]="cropConfig.width" [cropperMinWidth]="cropConfig.width" [roundCropper]="cropConfig.round" format="png" (imageCropped)="imageCropped($event)"></image-cropper>

@@ -1,0 +1,57 @@
+.popup-close {
+  width: 10%;
+  margin-left: auto;
+  padding-top: 15px;
+  padding-left: 15px;
+  border: 0;
+  outline: 0;
+}
+
+.modal-content {
+  height: 36rem;
+  padding: 0 15px;
+  color: #707070;
+}
+
+.tabs-outer{
+  margin: 15px 0 25px 0;
+}
+
+.nav-tabs .nav-link {
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  color: #707070;
+}
+
+.nav-tabs .nav-link.active {
+  color: #f06257;
+}
+
+.tab-content {
+  font-size: 0.9rem;
+}
+
+.tab-content p span {
+  font-weight: bold;
+}
+
+@media screen and (max-width:545px) {
+  .popup-close {
+    padding-top: 7px;
+  }
+  .booking-header .modal-dialog {
+    margin: .5rem 1rem;
+  }
+  .modal-content {
+    height: 31.5rem;
+  }
+  .details-main .tab-pane p {
+    margin-bottom: 0.9rem;
+  }
+}
+@media (min-width: 576px){
+  .modal-dialog {
+    max-width: 60%;
+    margin: auto;
+  }
+}

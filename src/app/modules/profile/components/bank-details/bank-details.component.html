@@ -1,0 +1,60 @@
+<form [formGroup]="bankDetailForm" (ngSubmit)="onSubmitBankData()">
+  <div class="">
+    <div class="row spacee">
+      <div class=" col-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="actHolderName" class="">Account Holder Name</label>
+          <input name="actHolderName" formControlName="actHolderName" class="form-control design-input" type="text"/>
+        </div>
+      </div>
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="actNo" class="">Account Number</label>
+          <input name="actNo" formControlName="actNo" class="form-control design-input" type="text"/>
+        </div>
+      </div>
+    </div>
+    <div class="row spacee">
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="bankName" class="">Bank Name</label>
+          <input name="bankName" formControlName="bankName" class="form-control  design-input" type="text"/>
+        </div>
+      </div>
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="ifscCode" class="">IFSC Code</label>
+          <input name="ifscCode" formControlName="ifscCode" class="form-control  design-input" type="text"/>
+        </div>
+      </div>
+    </div>
+    <div class="row spacee">
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown">
+          <label for="panNo" class="">PAN Card Number</label>
+          <input name="panNo" formControlName="panNo" class="form-control  design-input" type="text" />
+        </div>
+      </div>
+      <div class=" col-12 col-sm-12 col-md-6">
+        <div class="spaceupdown location-sect">
+          <label for="gstIn" class="">GSTIN (if applicable)</label>
+          <input name="gstIn" formControlName="gstIn" class="form-control  design-input" type="text" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-11 col-lg-12">
+        <div class="equal">
+          <button class="done-btn float-right" type="submit">
+            Submit
+          </button>
+        </div>
+        <label name="successmsg" *ngIf="successMessage" class="submitmsgcolor">{{ successMessage }}</label>
+        <label name="errormsg" *ngIf="errorMessage" class="errormsgcolor">{{
+          errorMessage
+        }}</label>
+        <label *ngIf="loading" class="col-xs-4 submitmsgcolor">Saving...</label>
+      </div>
+    </div>
+  </div>
+</form>

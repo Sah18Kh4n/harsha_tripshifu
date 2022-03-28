@@ -1,0 +1,22 @@
+.logo {
+  height: auto;
+  display: inline-block;
+  margin: 20px 20px 20px 20px;
+}
+.new-location.loc-tile h6 {
+  font-size: 0.9rem;
+  font-family: "Helvetica";
+  color: #707070;
+}
+
+@media screen and (max-width: 575px) {
+  .logo {
+    margin: 20px 20px 20px 10px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .logo {
+    margin-left: 10px;
+  }
+}

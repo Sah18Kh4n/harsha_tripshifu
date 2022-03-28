@@ -1,0 +1,27 @@
+<div class="product-thumbnail-sect">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="sect-sub-title">Awesome! Your favourites are added to your diary: {{ products.length }}</h3>
+    </div>
+  </div>
+  <div class="row" *ngIf="products && products.length > 0">
+    <div class="col-6 col-md-4 col-lg-6" *ngFor="let product of products">
+      <div class="thumbnail-container">
+        <h3 class="product-title text-truncate">{{ product.title }}</h3>
+        <div class="thumbnail">
+          <fa-icon class="close-ico f-btn" [icon]="closeIcon" (click)="deleteProduct(product.productListingId)">
+          </fa-icon>
+          <img *ngIf="product.images && product.images.length > 0" [src]="product.images[0].url" alt="" class="img-full" (error)="onImageError($event)">
+          <img *ngIf="product.images.length == 0" class="img-full" [src]="defaultImage" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="products === undefined || products.length === 0">
+    <div class="col-12">
+      <span class="hint-sect">
+        <label for="" class="hint">No products added</label>
+      </span>
+    </div>
+  </div>
+</div>

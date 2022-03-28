@@ -1,0 +1,168 @@
+<div *ngIf="isReady">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+    <div class="background-img image-responsive">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <app-content></app-content>
+          </div>
+          <div class="col-12 col-md-6">
+            <div id="signIn" class="mod-box">
+              <div class="row">
+                <div class="col-6 p-0">
+                  <div class="signin-box" [ngClass]="activeClass">
+                    <span class="signin">Sign In</span>
+                  </div>
+                </div>
+                <div class="col-6 p-0">
+                  <a routerLink="/account/signup">
+                    <span class="signup-box">
+                      <span class="signin">Sign Up</span>
+                    </span>
+                  </a>
+
+                </div>
+              </div>
+              <div *ngIf="showOtp" class="getotp-section">
+                <div class="row">
+                  <div class="col-12 spacetoleft">
+                    <label for="exampleEmail11">Mobile Number</label>
+                    <input name="contact" type="number" formControlName="phone" class="form-control design-input" />
+                  </div>
+                  <div class="validate-error-size">
+                    <div class="col-md-12">
+                      <div *ngIf="
+                    f.phone.errors?.pattern ||
+                    f.phone.errors?.minlength ||
+                    f.phone.errors?.maxlength
+                  " class="errormsgcolor">
+                        Mobile no. should be 10 digit
+                      </div>
+                      <div class="errormsgcolor"
+                        *ngIf="submitted && f.phone.dirty || submitted && f.phone.errors?.required">
+                        Phone is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <button class="done-btn float-right signup-btn">GET OTP</button>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!showOtp" class="login-container">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="welcome">
+                      <span class="title">Welcome</span>
+                      <span class="signin-title">Sign in to access your dashboard</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="fb-btn social-btn" (click)="signInWithFB()">
+                      <span class="fb-icon fa fa-2x fa-facebook"></span>
+                      <span class="border-line"></span>
+                      <div class="btn-txt">Log In with Facebook</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="google-btn social-btn" (click)="signInWithGoogle()">
+                      <span class="fb-icon fa fa-2x fa-google"></span>
+                      <span class="border-line"></span>
+                      <div class="btn-txt">Log In with Google</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="otp-btn social-btn" (click)="toggleGetOtp()">
+                      <span class="fb-icon fa fa-2x fa-mobile"></span>
+                      <span class="border-line"></span>
+                      <div class="btn-txt">Log In with OTP</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="or-content">
+                  <div class="row">
+                    <div class="col-5 p-0">
+                      <div class="line1"></div>
+                    </div>
+                    <div class="col-2 or">OR</div>
+                    <div class="col-5 p-0">
+                      <div class="line2"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 spacetoleft">
+                    <label for="exampleEmail11">Email Id</label>
+                    <input name="text" type="username" formControlName="email" class="form-control design-input" />
+                  </div>
+                  <div class="validate-error-size">
+                    <div class="col-md-12">
+                      <div class="errormsgcolor" *ngIf="submitted && f.email.errors?.email">Email is not valid</div>
+                      <div class="errormsgcolor" *ngIf="submitted && f.email.errors?.required">Email is required</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 pt-2 spacetoleft">
+                    <div class="eye-icon">
+                      <label for="exampleEmail11">Password</label>
+                      <span class="eye" (click)="toggleNewPassword()">
+                        <i class="fa" [ngClass]="newPasswordClass"></i>
+                      </span>
+                    </div>
+                    <input #newPassword name="password" type="password" formControlName="password"
+                      class="form-control design-input" />
+                  </div>
+                  <div class="validate-error-size">
+                    <div class="col-md-12">
+                      <div class="errormsgcolor" *ngIf="submitted && f.password.errors?.required">Password is
+                        required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="signin-sec">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="terms">
+                        <span class="link" (click)="openModal()">Forgot Password ?</span>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <button class="done-btn float-right signup-btn">Sign In</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="error-msg-size">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label *ngIf="loginloading">login ...</label>
+                      <label name="errormsg" *ngIf="errorMessage" class="errormsgcolor">{{errorMessage}}</label>
+                      <label name="successmsg" *ngIf="successmsg" class="submitmsgcolor">{{successmsg}}</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <span class="signup-here">New to Tripshifu ? <a class="signup-link"
+                        routerLink="/account/signup">&nbsp;Sign Up here</a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <app-forgetpassword #forgotPasswordModal></app-forgetpassword>
+</div>
+<app-footer></app-footer>

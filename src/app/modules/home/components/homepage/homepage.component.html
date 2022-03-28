@@ -1,0 +1,648 @@
+<!-- header -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="banner" style="background-image:url(../../../../../assets/images/traveller.jpg);">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="logo-image">
+                                <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/tripshifu-logo-black.svg"
+                                    style="width: 7.2rem;margin-top: 1rem;margin-left: 0.8rem;">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="right-side">
+                                <ul class="d-flex nav">
+                                    <li>
+                                        <a href="#" style="color:#fff">About</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" style="color:#fff">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" style="color:#fff">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-text">
+                        <div class="joinnow">
+                            <a routerLink="/login" class="linkstyle">JOIN NOW</a>
+                        </div>
+                        <!-- <button type="joinnow" class="joinnow" >JOIN NOW</button><br> -->
+                        <div class="center" style="font-size: 0.5rem">
+                            <p>
+                                ALREADY A SHIFU,
+                                <a routerLink="/" 
+                                    style="margin-left: 0.5rem; text-decoration: underline; color: #fff;">
+                                    SIGN IN
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- main body -->
+<main>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="title1">MANAGE BOOKING</h3>
+                    <label for="phone number"
+                        style="font-family: Helvetica;font-size: 0.7rem;color: #000;margin-left: 5%;">PHONE
+                        NUMBER</label>
+                    <input type="text" name="phone number" class="form-control" ngModel>
+                    <label for="otp"
+                        style="font-family: Helvetica;font-size: 0.7rem; margin-top: 0.5rem; color: #000; margin-left: 5%;">OTP</label>
+                    <input type="text" name="otp" class="form-control" style="margin-bottom: 2px;" ngModel><br>
+                    <button class="btn-primary1" type="submit">SUBMIT</button>
+                    <a routerLink="/" style="margin-left: 8px; text-decoration: underline;">RESEND OTP</a>
+                </div>
+                <div class="vl"></div>
+                <div class="col-md-6">
+                    <h3 class="title2">VISIT YOUR FAVOURITE SHIFU</h3>
+                    <label for="search by" style="font-family: Helvetica;font-size: 0.7rem; color: #000;">SEARCH BY
+                    </label>
+                    <input type="text" name="name" class="form1" style="margin-left: 12px; text-align: center;"
+                        placeholder="NAME"><br>
+                    <input class="form2" type="text" style="margin-top: 23px; text-align: center"
+                        placeholder="ENTER NAME/PHONE EMAIL/SHIFU HANDLE" size="40"><br><br>
+                    <button class="btn-primary2" type="submit">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- how it works -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="title3">HOW IT WORKS</h3>
+                </div>
+                <div class="col-md-6">
+                    <div class="banner-text-header1">
+                        <h2 style="font-size: 1rem;margin-top: 20px;color: #fff;">TEXT HEADER</h2>
+                    </div>
+                    <div class="sub-text" style="margin-left: 13rem;margin-top: 0.4rem;font-size: 13px;">SUB TEXT
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="video">
+                        <img src="https://149504167.v2.pressablecdn.com/wp-content/uploads/2019/10/youtube-800x220.png"
+                            width="270px" style="margin-top: -0.9rem;width: 15rem;margin-left: -7px; ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- body banner -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="banner"
+                        style="background-image:url(https://res.cloudinary.com/funstaytest/image/fetch/c_crop,w_1600,h_500,x_100,y_250/https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/influencer-landing.png);background-repeat : no-repeat;height: 50vh; margin-top: 0.3rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- featured shifu -->
+    <section class="mt-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="title">FEATURED SHIFU</h1>
+                </div>
+            </div>
+            <div class="row">
+                <swiper class="swiper-container" fx-Flex="auto" [config]="config">
+                    <div class="col-lg-4" style="margin-right: 109px;">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/SiriHomestay_606d82c68d6b7.jpg"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/1_1603682613_1606494298.jpg"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/1654788600_1648_1559905809.jpg"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/1653484100_1648_1559905759.jpg"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </swiper>
+            </div>
+        </div>
+    </section>
+
+    <!-- trending holidays -->
+    <section>
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col-lg-12">
+                    <h1 class="title">TRENDING HOLIDAYS</h1>
+                </div>
+            </div>
+            <div class="row">
+                <swiper class="swiper-container" fx-Flex="auto" [config]="config">
+                    <div class="col-lg-4" style="margin-right: 109px;">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/3_1588145473.jpg"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/4_1588145473.jpg"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/5_1588145473.jpg"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </swiper>
+            </div>
+        </div>
+    </section>
+
+    <!-- body banner -->
+    <section style="width: 100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner col-12"
+                        style="background-image:url(https://res.cloudinary.com/funstaytest/image/fetch/c_crop,w_1600,h_500,x_100,y_250/https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/influencer-landing.png);background-repeat : no-repeat;height: 50vh; margin-top: 1rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- trending stays -->
+    <section class="mt-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="title">TRENDING STAYS</h1>
+                </div>
+            </div>
+            <div class="row">
+                <swiper class="swiper-container" fx-Flex="auto" [config]="config">
+                    <div class="col-lg-4" style="margin-right: 109px;">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/plantation view_1562232528.jpg"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/1654803800_1648.jpg"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="trending">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="img">
+                                        <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/2859011200_1693.JPG"
+                                            alt=""
+                                            style="height: 9rem;margin-left: -12px;margin-top: -12px;width: 10rem;border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="content">
+                                        <h4>HEADER</h4><br>
+                                        <div class="sub-text">SUB TEXT</div><br><br>
+                                        <div class="content-footer">
+                                            <a href="#" class="book-now">BOOK NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </swiper>
+            </div>
+        </div>
+    </section>
+
+    <!-- inspired -->
+    <section class="mt-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="title">GET INSPIRED</h1>
+                </div>
+            </div>
+            <div class="row">
+                <swiper class="swiper-container" fx-Flex="auto" [config]="config">
+                    <div class="col-lg-4" style="margin-right: 109px;">
+                        <div class="inspired1">
+                            <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/180378868_1561013839.jpg"
+                                alt=""
+                                style="width: 21rem; height: 20rem;margin-top: -1.2rem;margin-left: -1.3rem;border-radius: 13px;">
+                        </div>
+                        <h6 style="font-size: 0.9rem;margin-left: 8rem;margin-top: 0.4rem;">TEXT</h6>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="inspired1">
+                            <img src="https://res.cloudinary.com/funstaytest/image/fetch/ar_1.5,c_fill/https:/s3.ap-south-1.amazonaws.com/primary010121/packages/AdaaranClubRannalhi,Maldives/gallery/AdaaranClubRannalhi,Maldives_6049a37b94b06.jpg"
+                                alt=""
+                                style="width: 21rem; height: 20rem;margin-top: -1.2rem;margin-left: -1.3rem;border-radius: 13px;">
+                        </div>
+                        <h6 style="font-size: 0.9rem;margin-left: 8rem;margin-top: 0.4rem;">TEXT</h6>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="inspired1">
+                            <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/f1_1563785486.jpg"
+                                alt=""
+                                style="width: 20rem; height: 20rem;margin-top: -1.2rem;margin-left: -1.3rem;border-radius: 13px;">
+                        </div>
+                        <h6 style="font-size: 0.9rem;margin-left: 8rem;margin-top: 0.4rem;">TEXT</h6>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="inspired1">
+                            <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/garden room_1562224830.jpg"
+                                alt=""
+                                style="width: 20rem; height: 20rem;margin-top: -1.2rem;margin-left: -1.3rem;border-radius: 13px;">
+                        </div>
+                        <h6 style="font-size: 0.9rem;margin-left: 8rem;margin-top: 0.4rem;">TEXT</h6>
+                    </div>
+                </swiper>
+            </div>
+        </div>
+    </section>
+
+    <!-- in media -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="title">IN MEDIA</h1>
+                </div>
+            </div>
+            <div class="row">
+                <swiper class="swiper-container" fx-Flex="auto" [config]="config">
+                    <div class="col-lg-4" style="margin-right: 109px;">
+                        <div class="inspired2">
+                            <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/garden room_1562224830.jpg"
+                                alt=""
+                                style="width: 20rem; height: 20rem;margin-top: -1.2rem;margin-left: -1.3rem;border-radius: 13px;">
+                        </div>
+                        <h6 style="font-size: 0.9rem;margin-left: 8rem;margin-top: 0.4rem;">TEXT</h6>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="inspired2">
+                            <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/1 (1)_1588143207.jpg"
+                                alt=""
+                                style="width: 20rem; height: 20rem;margin-top: -1.2rem;margin-left: -1.3rem;border-radius: 13px;">
+                        </div>
+                        <h6 style="font-size: 0.9rem;margin-left: 8rem;margin-top: 0.4rem;">TEXT</h6>
+                    </div>
+                    <div class="col-lg-4">    
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="inspired2">
+                            <img src="https://s3.ap-south-1.amazonaws.com/primary010121/storage/picture/rooms/2854032900_1693.jpg"
+                                alt=""
+                                style="width: 20rem; height: 20rem;margin-top: -1.2rem;margin-left: -1.3rem;border-radius: 13px;">
+                        </div>
+                        <h6 style="font-size: 0.9rem;margin-left: 8rem;margin-top: 0.4rem;">TEXT</h6>
+                    </div>
+                </swiper>
+            </div>
+        </div>
+    </section>
+
+    <!-- partnership -->
+    <section class="mt-2">
+        <div class="container" >
+            <div class="row ">
+                <div class="col-lg-12">
+                    <h1 class="title">PARTNERSHIPS</h1>
+                </div>
+            </div>
+            <div class="row bg-red">
+                <div class="col-md-3">
+                    <div class="get-inspired2">
+                        <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/tripshifu-logo-black.svg"
+                            width="90px" style="margin-top: -12px;margin-left: -10px; " />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="get-inspired2">
+                        <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/tripshifu-logo-black.svg"
+                            width="90px" style="margin-top: -12px;margin-left: -10px; " />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="get-inspired2">
+                        <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/tripshifu-logo-black.svg"
+                            width="90px" style="margin-top: -12px;margin-left: -10px; " />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="get-inspired2">
+                        <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/common/assets/images/tripshifu-logo-black.svg"
+                            width="90px" style="margin-top: -12px;margin-left: -10px; " />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container-fluid p-0">
+        <div class="clear"></div>
+            <div class="footer-box">
+            <div class="container-fluid">
+                <div class="footer-content">
+                <div class="all-links">
+                    <div class="row">
+                    <div class="col-6 col-md-2">
+                        <h1 class="headings">talk to our expert</h1>
+                        <div class="">
+                        <div class="">
+                            <a class="links" href="">91-8287-039-039</a>
+                        </div>
+                        <div class="">
+                            <a class="links" href="">91-9902-860-849</a>
+                        </div>
+                        <div class="">
+                            <a class="links" href="mailto:info@tripshifu.com" target="_blank">info@tripshifu.com </a>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <h1 class="headings">
+                        information
+                        </h1>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <h1 class="headings">
+                        newsletter
+                        </h1>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <h1 class="headings">
+                        links
+                        </h1>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <h1 class="headings">
+                        payments
+                        </h1>
+                        <div class="payments-ico">
+                        <span class="instamojo-ico">
+                            <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/instamojo_logo.svg"
+                            class="instamojo">
+                        </span>
+                        <span class="visa-ico">
+                            <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/visa_logo.svg"
+                            class="visa">
+                        </span>
+                        <span class="mastercard-ico">
+                            <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/mastercard_logo.svg"
+                            class="mastercard">
+                        </span>
+                        <span class="rupay-ico">
+                            <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/rupay_logo.svg"
+                            class="rupay">
+                        </span>
+                        <span class="upi-ico">
+                            <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/upi_logo.svg"
+                            class="upi">
+                        </span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <h1 class="headings">
+                        social
+                        </h1>
+                        <div class="social-links-cont">
+                        <span class="social-link-item">
+                            <a href="https://www.facebook.com/tripshifu/" target="_blank">
+                                <i class="social-link-ico fb"></i>
+                            </a>
+                            </span>
+                            <span class="social-link-item">
+                            <a href="https://twitter.com/tripshifu" target="_blank">
+                                <i class="social-link-ico tw"></i>
+                            </a>
+                            </span>
+                            <span class="social-link-item">
+                            <a href="https://www.linkedin.com/company/funstay-experientialtravel" target="_blank">
+                                <i class="social-link-ico li"></i>
+                            </a>
+                            </span>
+                            <span class="social-link-item">
+                            <a href="https://youtube.com/channel/UCyvfct3Y8r3HJU3WncIvMBA" target="_blank">
+                                <i class="social-link-ico yt"></i>
+                            </a>
+                            </span>
+                            <span class="social-link-item">
+                            <a href="https://www.instagram.com/tripshifu/" target="_blank">
+                                <i class="social-link-ico ig"></i>
+                            </a>
+                            </span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="row no-gutters bottom">
+                    <div class="col-12 col-md-1">
+                    <div class="version">
+                        v1.3.2-alpha
+                    </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                    <div class="rights">
+                        &copy; 2020 All rights reserved.
+                    </div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                    <div class="address">
+                        22nd Cross Road, 1192/1, 24th Main Rd, HSR Layout, Bengaluru, Karnataka 560102
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div> 
+    </div>     
+</footer>

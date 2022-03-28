@@ -1,0 +1,154 @@
+<div class="clear"></div>
+<div class="footer-box">
+  <div class="container-fluid">
+    <div class="footer-content">
+      <div class="all-links">
+        <div class="row">
+          <div class="col-6 col-md-2">
+            <h1 class="headings">talk to our expert</h1>
+            <div class="">
+              <div class="">
+                <a class="links" href="">91-8287-039-039</a>
+              </div>
+              <div class="">
+                <a class="links" href="">91-9902-860-849</a>
+              </div>
+              <div class="">
+                <a class="links" href="mailto:info@tripshifu.com" target="_blank">info@tripshifu.com </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-md-2">
+            <h1 class="headings">
+              information
+            </h1>
+            <div class="" *ngIf="footerLinks && footerLinks.information && footerLinks.information.length > 0">
+              <div *ngFor="let link of footerLinks.information">
+                <a class="links" [href]="link.link" target="_blank">{{ link.label }}</a>
+              </div>
+              <!-- <div>
+              <a class="links" href="https://funstay.in/contact-us" target="_blank">Contact Us</a>
+            </div>
+            <div>
+              <a class="links" href="https://funstay.in/privacy-policy" target="_blank">Privacy Policy</a>
+            </div>
+            <div>
+              <a class="links" href="https://funstay.in/terms-and-conditions" target="_blank">User Agreement</a>
+            </div>
+            <div>
+                    <a class= "links" href="https://funstay.in/social-responsibility" target="_blank">Social Responsibilty</a>
+            </div>  -->
+            </div>
+          </div>
+          <div class="col-xs-6 col-md-2">
+            <h1 class="headings">
+              newsletter
+            </h1>
+            <div class="" *ngIf="footerLinks && footerLinks.newsletter && footerLinks.newsletter.length > 0">
+              <div *ngFor="let link of footerLinks.newsletter">
+                <a class="links" [href]="link.link" target="_blank">{{ link.label }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-md-2">
+            <h1 class="headings">
+              links
+            </h1>
+            <div class="" *ngIf="footerLinks && footerLinks.links && footerLinks.links.length > 0">
+              <div *ngFor="let link of footerLinks.links">
+                <a class="links" [href]="link.link" target="_blank">{{ link.label }}</a>
+              </div>
+            </div>
+            <!-- <div class="">
+            <div class="">
+              <a class="links" href="https://blog.funstay.in/">Blog</a>
+            </div>
+            <div>
+              <a class="links" href="https://funstay.in/careers" target="_blank">Careers</a>
+            </div>
+            <div>
+              <a class="links" href="javascript:void(0)" target="_blank">Sitemap</a>
+            </div>
+          </div> -->
+          </div>
+          <div class="col-6 col-md-2">
+            <h1 class="headings">
+              payments
+            </h1>
+            <div class="payments-ico">
+              <span class="instamojo-ico">
+                <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/instamojo_logo.svg"
+                  class="instamojo">
+              </span>
+              <span class="visa-ico">
+                <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/visa_logo.svg"
+                  class="visa">
+              </span>
+              <span class="mastercard-ico">
+                <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/mastercard_logo.svg"
+                  class="mastercard">
+              </span>
+              <span class="rupay-ico">
+                <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/rupay_logo.svg"
+                  class="rupay">
+              </span>
+              <span class="upi-ico">
+                <img src="https://funstay010121.s3.ap-south-1.amazonaws.com/dashboard/assets/images/upi_logo.svg"
+                  class="upi">
+              </span>
+            </div>
+          </div>
+          <div class="col-6 col-md-2">
+            <h1 class="headings">
+              social
+            </h1>
+            <div class="social-links-cont">
+              <span class="social-link-item">
+	              <a href="https://www.facebook.com/tripshifu/" target="_blank">
+	                <i class="social-link-ico fb"></i>
+	              </a>
+	            </span>
+	            <span class="social-link-item">
+	              <a href="https://twitter.com/tripshifu" target="_blank">
+	                <i class="social-link-ico tw"></i>
+	              </a>
+	            </span>
+	            <span class="social-link-item">
+	              <a href="https://www.linkedin.com/company/funstay-experientialtravel" target="_blank">
+	                <i class="social-link-ico li"></i>
+	              </a>
+	            </span>
+	            <span class="social-link-item">
+	              <a href="https://youtube.com/channel/UCyvfct3Y8r3HJU3WncIvMBA" target="_blank">
+	                <i class="social-link-ico yt"></i>
+	              </a>
+	            </span>
+	            <span class="social-link-item">
+	              <a href="https://www.instagram.com/tripshifu/" target="_blank">
+	                <i class="social-link-ico ig"></i>
+	              </a>
+	            </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters bottom">
+        <div class="col-12 col-md-1">
+          <div class="version">
+            {{ appVersion }}
+          </div>
+        </div>
+        <div class="col-12 col-md-3">
+          <div class="rights">
+            &copy; 2020 All rights reserved.
+          </div>
+        </div>
+        <div class="col-12 col-md-8">
+          <div class="address">
+            22nd Cross Road, 1192/1, 24th Main Rd, HSR Layout, Bengaluru, Karnataka 560102
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

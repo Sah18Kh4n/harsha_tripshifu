@@ -1,0 +1,174 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<app-email-verification></app-email-verification>
+<app-bookingdetails-popup *ngIf="bookingDetails" [visible]="popup" [details]="bookingDetails" (closePopUp)="onClosePopUp()"></app-bookingdetails-popup>
+<div *ngIf="data" class="body bcard" [ngClass]="sidebarSpacing">
+  <div class="mb-3 card">
+    <div class="card-header-tab card-header">
+      <div class="card-header-title font-size-lg text-capitalize font-weight-bold">
+        <i class="header-icon lnr-charts icon-gradient bg-happy-green"> </i>Performance
+      </div>
+    </div>
+    <div class="d-cards-outer">
+      <div class="row">
+      
+        <!-- PROFILE VISTS -->
+
+        <div class="col-md-6 col-xl-3">
+          <div class="d-card mb-3 widget-content bg-midnight-bloom">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-heading">No. of Diary Visits</div>
+                </div>
+                <div class="widget-content-right">
+                    <div class="widget-numbers text-white"><span>{{ data.total_visitors }}</span></div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOOKINGS REQUESTED -->
+
+        <div class="col-md-6 col-xl-3">
+          <div class="d-card mb-3 widget-content bg-arielle-smile">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-heading">Bookings Requested</div>
+                </div>
+                <div class="widget-content-right">
+                    <div class="widget-numbers text-white"><span>{{ data.booking_requests }}</span></div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOOKINGS CONFIRMED -->
+
+        <div class="col-md-6 col-xl-3">
+          <div class="d-card mb-3 widget-content bg-strong-bliss">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-heading">Bookings Confirmed</div>
+                </div>
+                <div class="widget-content-right">
+                    <div class="widget-numbers text-white"><span>{{ data.bookings_confirmed }}</span></div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CREDITS EARNED -->
+
+        <div class="col-md-6 col-xl-3">
+          <div class="d-card mb-3 widget-content bg-grow-early">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-heading">Credits Earned</div>
+                </div>
+                <div class="widget-content-right">
+                    <div class="widget-numbers text-white"><span>{{ data.credits }}</span></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bookings-table-cont">
+    <div class="row">
+      <div class="col-6 col-md-12">
+        <table class="table d-table">
+          <thead>
+            <tr>
+              <th>Booking Id</th>
+              <th>Type</th>
+              <th>Property/Package</th>
+              <th>Price</th>
+              <th>Payout</th>
+              <th>Booking Created</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let booking of bookings">
+            <tr *ngIf="booking">
+              <td>{{ booking.booking_id }}</td>
+              <td>
+                <span *ngIf="booking.listing_id">
+                  Property
+                </span>
+                <span *ngIf="!booking.listing_id">
+                  Package
+                </span>
+              </td>
+              <td>
+                <span *ngIf="booking.listing_id">
+                  {{ booking.title }}
+                </span>
+                <span *ngIf="booking.package_id">
+                  {{ booking.p_title }}
+                </span>
+              </td>
+              <td>
+                <span *ngIf="booking.listing_id">
+                  {{ booking.display_amount }}
+                </span>
+                <span *ngIf="!booking.listing_id">
+                  {{ booking.price }}
+                </span>
+              </td>
+              <td>
+                <span *ngIf="booking.listing_id">
+                  {{ booking.l_payout }}
+                </span>
+                <span *ngIf="!booking.listing_id">
+                  {{ booking.p_payout }}
+                </span>
+              </td>
+              <td>{{ booking.created }}</td>
+              <td><button class="btn btn-primary" (click)="openPopUp(booking.booking_id)">View Details</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- FRIENDS REFERRED -->
+
+  <!-- <div class="row">
+    <div class="col-md-3 col-xl-3">
+      <div class="card mb-3 widget-chart widget-chart2 text-left card-btm-border card-shadow-primary border-primary">
+        <div class="widget-chat-wrapper-outer">
+          <div class="widget-chart-content p-3">
+            <p class="friends">Friends Referred</p>
+            <div class="widget-chart-flex">
+              <div class="widget-numbers">
+                <div class="widget-chart-flex">
+                  <div class="fsize-2">
+                    <span class="number">0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-xl-3">
+      <div class="card mb-3 widget-chart widget-chart2 text-left card-btm-border card-shadow-primary border-primary">
+        <div class="widget-chat-wrapper-outer">
+          <div class="widget-chart-content p-3">
+            <p class="friends">Foot Steps</p>
+            <div class="widget-chart-flex">
+              <div class="widget-numbers">
+                <div class="widget-chart-flex">
+                  <div class="fsize-2">
+                    <span class="number">0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
